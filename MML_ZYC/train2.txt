@@ -1,0 +1,738 @@
+F:\Anaconda\anaconda\envs\newPytorch\python.exe F:\毕业设计\multimodal-sentiment-analysis\MML_ZYC\main.py
+dict_keys(['raw_data', 'features', 'arousal_label', 'valence_label', 'subject_list', 'ch_info', 'info'])
+EEG: 1-70filer, 50Hz notch, 256Hz resample;
+Subject : 1-30 subject, no 3,9,12,15,16,25 subject; 24 person, 20 trial, 32 EEG channel, 7 pps channels;
+Labels :    Arousal: 0:["Sadness", "Disgust", "Neutral"]、1:["Joy, Happiness", "Amusement"] 2:["Surprise", "Fear", "Anger", "Anxiety"]
+    Valence: 0:["Fear", "Anger", "Disgust", "Sadness", "Anxiety"] 1:["Surprise", "Neutral"] 2:["Joy, Happiness", "Amusement"]
+Eye Track data : DistanceLeft，PupilLeft，ValidityLeft，Distance Right，Pupil Right，Validity Right，Fixation Index，Gaze Point X，Gaze Point Y，Fixation Duration
+     PPS data : ECG, GSR，Resp，Temp，Status
+        Features:
+            	 DE features,
+            	 Eye features: Pupil diameter (mean value, standard deviation, and spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, and 0.6 - 1Hz); Eye's viewing distance from the screen (approach time ratio, avoidance time ratio, approach rate and average approach rate); Blinking (blink depth, blink rate, maximum blink duration, and total eye - closed time);Eye fixation coordinates on the screen (standard deviation, skewness, kurtosis of horizontal and vertical coordinates, average saccade path length, as well as the mean and standard deviation of the standard deviation for each fixation interval as time - domain features); Some frequency - domain features:(spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, 0.6 - 0.8Hz, and 1 - 2Hz); Global features (average fixation time and number of fixation areas) ,
+            	 PPS features: For the ECG signal, features such as heart rate, heart rate variability, and heart rate spectral energy were extracted. For the GSR signal, features including skin conductance, rate of change of skin conductance, and skin conductance spectral energy were extracted. The skin temperature signal encompasses features like skin temperature, rate of change of skin temperature, and skin temperature spectral energy. As for the respiratory signal, features such as respiratory rate, rate of change of respiratory rate, and respiratory rate spectral energy were extracted.
+1
+Train Epoch 1: 100%|██████████| 7/7 [00:13<00:00,  1.91s/it, loss=0.0748, ce_loss=0.0194, contrastive_loss=0.0554, acc=0.347]
+Epoch 1: Train Loss: 0.0748, CE Loss: 0.0194, Contrastive Loss: 0.0554, Acc: 0.3475 | Test Loss: 0.2122, CE Loss: 0.0545, Contrastive Loss: 0.1578, Acc: 0.4500
+Train Epoch 2: 100%|██████████| 7/7 [00:11<00:00,  1.69s/it, loss=0.0741, ce_loss=0.0192, contrastive_loss=0.055, acc=0.357]
+Epoch 2: Train Loss: 0.0741, CE Loss: 0.0192, Contrastive Loss: 0.0550, Acc: 0.3575 | Test Loss: 0.2120, CE Loss: 0.0544, Contrastive Loss: 0.1578, Acc: 0.4500
+Train Epoch 3: 100%|██████████| 7/7 [00:11<00:00,  1.69s/it, loss=0.0741, ce_loss=0.019, contrastive_loss=0.0552, acc=0.375]
+Epoch 3: Train Loss: 0.0741, CE Loss: 0.0190, Contrastive Loss: 0.0552, Acc: 0.3750 | Test Loss: 0.2123, CE Loss: 0.0542, Contrastive Loss: 0.1584, Acc: 0.4500
+Train Epoch 4: 100%|██████████| 7/7 [00:11<00:00,  1.69s/it, loss=0.0741, ce_loss=0.0188, contrastive_loss=0.0555, acc=0.412]
+Epoch 4: Train Loss: 0.0741, CE Loss: 0.0188, Contrastive Loss: 0.0555, Acc: 0.4125 | Test Loss: 0.2111, CE Loss: 0.0538, Contrastive Loss: 0.1577, Acc: 0.4500
+Train Epoch 5: 100%|██████████| 7/7 [00:11<00:00,  1.71s/it, loss=0.0739, ce_loss=0.0186, contrastive_loss=0.0556, acc=0.425]
+Epoch 5: Train Loss: 0.0739, CE Loss: 0.0186, Contrastive Loss: 0.0556, Acc: 0.4250 | Test Loss: 0.2095, CE Loss: 0.0532, Contrastive Loss: 0.1568, Acc: 0.5000
+Train Epoch 6: 100%|██████████| 7/7 [00:12<00:00,  1.72s/it, loss=0.0727, ce_loss=0.0182, contrastive_loss=0.0547, acc=0.455]
+Epoch 6: Train Loss: 0.0727, CE Loss: 0.0182, Contrastive Loss: 0.0547, Acc: 0.4550 | Test Loss: 0.2073, CE Loss: 0.0521, Contrastive Loss: 0.1558, Acc: 0.5000
+Train Epoch 7: 100%|██████████| 7/7 [00:11<00:00,  1.69s/it, loss=0.0715, ce_loss=0.018, contrastive_loss=0.0538, acc=0.477]
+Epoch 7: Train Loss: 0.0715, CE Loss: 0.0180, Contrastive Loss: 0.0538, Acc: 0.4775 | Test Loss: 0.2063, CE Loss: 0.0510, Contrastive Loss: 0.1561, Acc: 0.6000
+Train Epoch 8: 100%|██████████| 7/7 [00:12<00:00,  1.73s/it, loss=0.0721, ce_loss=0.0176, contrastive_loss=0.0548, acc=0.52]
+Epoch 8: Train Loss: 0.0721, CE Loss: 0.0176, Contrastive Loss: 0.0548, Acc: 0.5200 | Test Loss: 0.2047, CE Loss: 0.0500, Contrastive Loss: 0.1555, Acc: 0.6000
+Train Epoch 9: 100%|██████████| 7/7 [00:11<00:00,  1.66s/it, loss=0.0722, ce_loss=0.0173, contrastive_loss=0.0553, acc=0.568]
+Epoch 9: Train Loss: 0.0722, CE Loss: 0.0173, Contrastive Loss: 0.0553, Acc: 0.5675 | Test Loss: 0.2034, CE Loss: 0.0491, Contrastive Loss: 0.1553, Acc: 0.6500
+Train Epoch 10: 100%|██████████| 7/7 [00:12<00:00,  1.79s/it, loss=0.0718, ce_loss=0.017, contrastive_loss=0.0552, acc=0.578]
+Epoch 10: Train Loss: 0.0718, CE Loss: 0.0170, Contrastive Loss: 0.0552, Acc: 0.5775 | Test Loss: 0.2012, CE Loss: 0.0479, Contrastive Loss: 0.1544, Acc: 0.7500
+Train Epoch 11: 100%|██████████| 7/7 [00:11<00:00,  1.67s/it, loss=0.0701, ce_loss=0.0167, contrastive_loss=0.0538, acc=0.583]
+Epoch 11: Train Loss: 0.0701, CE Loss: 0.0167, Contrastive Loss: 0.0538, Acc: 0.5825 | Test Loss: 0.2000, CE Loss: 0.0467, Contrastive Loss: 0.1545, Acc: 0.7500
+Train Epoch 12: 100%|██████████| 7/7 [00:12<00:00,  1.82s/it, loss=0.0692, ce_loss=0.0165, contrastive_loss=0.0532, acc=0.595]
+Epoch 12: Train Loss: 0.0692, CE Loss: 0.0165, Contrastive Loss: 0.0532, Acc: 0.5950 | Test Loss: 0.1979, CE Loss: 0.0446, Contrastive Loss: 0.1546, Acc: 0.7500
+Train Epoch 13: 100%|██████████| 7/7 [00:12<00:00,  1.72s/it, loss=0.0687, ce_loss=0.0165, contrastive_loss=0.0527, acc=0.613]
+Epoch 13: Train Loss: 0.0687, CE Loss: 0.0165, Contrastive Loss: 0.0527, Acc: 0.6125 | Test Loss: 0.1968, CE Loss: 0.0435, Contrastive Loss: 0.1548, Acc: 0.7500
+Train Epoch 14: 100%|██████████| 7/7 [00:11<00:00,  1.66s/it, loss=0.0695, ce_loss=0.0158, contrastive_loss=0.0542, acc=0.642]
+Epoch 14: Train Loss: 0.0695, CE Loss: 0.0158, Contrastive Loss: 0.0542, Acc: 0.6425 | Test Loss: 0.2054, CE Loss: 0.0470, Contrastive Loss: 0.1599, Acc: 0.8000
+Train Epoch 15: 100%|██████████| 7/7 [00:11<00:00,  1.67s/it, loss=0.0679, ce_loss=0.0155, contrastive_loss=0.053, acc=0.618]
+Train Epoch 16:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 15: Train Loss: 0.0679, CE Loss: 0.0155, Contrastive Loss: 0.0530, Acc: 0.6175 | Test Loss: 0.2070, CE Loss: 0.0482, Contrastive Loss: 0.1605, Acc: 0.6500
+Train Epoch 16: 100%|██████████| 7/7 [00:11<00:00,  1.67s/it, loss=0.0683, ce_loss=0.0155, contrastive_loss=0.0534, acc=0.642]
+Train Epoch 17:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 16: Train Loss: 0.0683, CE Loss: 0.0155, Contrastive Loss: 0.0534, Acc: 0.6425 | Test Loss: 0.2028, CE Loss: 0.0460, Contrastive Loss: 0.1585, Acc: 0.7500
+Train Epoch 17: 100%|██████████| 7/7 [00:12<00:00,  1.82s/it, loss=0.0676, ce_loss=0.0155, contrastive_loss=0.0528, acc=0.63]
+Train Epoch 18:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 17: Train Loss: 0.0676, CE Loss: 0.0155, Contrastive Loss: 0.0528, Acc: 0.6300 | Test Loss: 0.2002, CE Loss: 0.0456, Contrastive Loss: 0.1564, Acc: 0.7000
+Train Epoch 18: 100%|██████████| 7/7 [00:12<00:00,  1.82s/it, loss=0.0672, ce_loss=0.0151, contrastive_loss=0.0527, acc=0.657]
+Epoch 18: Train Loss: 0.0672, CE Loss: 0.0151, Contrastive Loss: 0.0527, Acc: 0.6575 | Test Loss: 0.1972, CE Loss: 0.0452, Contrastive Loss: 0.1539, Acc: 0.7000
+Early stopping triggered at epoch 18
+dict_keys(['raw_data', 'features', 'arousal_label', 'valence_label', 'subject_list', 'ch_info', 'info'])
+EEG: 1-70filer, 50Hz notch, 256Hz resample;
+Subject : 1-30 subject, no 3,9,12,15,16,25 subject; 24 person, 20 trial, 32 EEG channel, 7 pps channels;
+Labels :    Arousal: 0:["Sadness", "Disgust", "Neutral"]、1:["Joy, Happiness", "Amusement"] 2:["Surprise", "Fear", "Anger", "Anxiety"]
+    Valence: 0:["Fear", "Anger", "Disgust", "Sadness", "Anxiety"] 1:["Surprise", "Neutral"] 2:["Joy, Happiness", "Amusement"]
+Eye Track data : DistanceLeft，PupilLeft，ValidityLeft，Distance Right，Pupil Right，Validity Right，Fixation Index，Gaze Point X，Gaze Point Y，Fixation Duration
+     PPS data : ECG, GSR，Resp，Temp，Status
+        Features:
+            	 DE features,
+            	 Eye features: Pupil diameter (mean value, standard deviation, and spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, and 0.6 - 1Hz); Eye's viewing distance from the screen (approach time ratio, avoidance time ratio, approach rate and average approach rate); Blinking (blink depth, blink rate, maximum blink duration, and total eye - closed time);Eye fixation coordinates on the screen (standard deviation, skewness, kurtosis of horizontal and vertical coordinates, average saccade path length, as well as the mean and standard deviation of the standard deviation for each fixation interval as time - domain features); Some frequency - domain features:(spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, 0.6 - 0.8Hz, and 1 - 2Hz); Global features (average fixation time and number of fixation areas) ,
+            	 PPS features: For the ECG signal, features such as heart rate, heart rate variability, and heart rate spectral energy were extracted. For the GSR signal, features including skin conductance, rate of change of skin conductance, and skin conductance spectral energy were extracted. The skin temperature signal encompasses features like skin temperature, rate of change of skin temperature, and skin temperature spectral energy. As for the respiratory signal, features such as respiratory rate, rate of change of respiratory rate, and respiratory rate spectral energy were extracted.
+1
+Train Epoch 1: 100%|██████████| 7/7 [00:12<00:00,  1.73s/it, loss=0.0682, ce_loss=0.0146, contrastive_loss=0.0536, acc=0.635]
+Epoch 1: Train Loss: 0.0682, CE Loss: 0.0146, Contrastive Loss: 0.0536, Acc: 0.6350 | Test Loss: 0.1964, CE Loss: 0.0418, Contrastive Loss: 0.1546, Acc: 0.7000
+Train Epoch 2: 100%|██████████| 7/7 [00:13<00:00,  1.86s/it, loss=0.0668, ce_loss=0.0145, contrastive_loss=0.0523, acc=0.662]
+Train Epoch 3:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 2: Train Loss: 0.0668, CE Loss: 0.0145, Contrastive Loss: 0.0523, Acc: 0.6625 | Test Loss: 0.1998, CE Loss: 0.0410, Contrastive Loss: 0.1591, Acc: 0.6500
+Train Epoch 3: 100%|██████████| 7/7 [00:12<00:00,  1.76s/it, loss=0.0676, ce_loss=0.0142, contrastive_loss=0.0535, acc=0.645]
+Epoch 3: Train Loss: 0.0676, CE Loss: 0.0142, Contrastive Loss: 0.0535, Acc: 0.6450 | Test Loss: 0.1962, CE Loss: 0.0417, Contrastive Loss: 0.1548, Acc: 0.6500
+Train Epoch 4: 100%|██████████| 7/7 [00:11<00:00,  1.70s/it, loss=0.067, ce_loss=0.0143, contrastive_loss=0.0529, acc=0.642]
+Epoch 4: Train Loss: 0.0670, CE Loss: 0.0143, Contrastive Loss: 0.0529, Acc: 0.6425 | Test Loss: 0.2038, CE Loss: 0.0434, Contrastive Loss: 0.1609, Acc: 0.5500
+Train Epoch 5: 100%|██████████| 7/7 [00:11<00:00,  1.68s/it, loss=0.0661, ce_loss=0.0135, contrastive_loss=0.0528, acc=0.7]
+Train Epoch 6:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 5: Train Loss: 0.0661, CE Loss: 0.0135, Contrastive Loss: 0.0528, Acc: 0.7000 | Test Loss: 0.2061, CE Loss: 0.0432, Contrastive Loss: 0.1635, Acc: 0.6000
+Train Epoch 6: 100%|██████████| 7/7 [00:12<00:00,  1.72s/it, loss=0.0654, ce_loss=0.0137, contrastive_loss=0.0518, acc=0.672]
+Epoch 6: Train Loss: 0.0654, CE Loss: 0.0137, Contrastive Loss: 0.0518, Acc: 0.6725 | Test Loss: 0.2090, CE Loss: 0.0431, Contrastive Loss: 0.1667, Acc: 0.6000
+Train Epoch 7: 100%|██████████| 7/7 [00:12<00:00,  1.72s/it, loss=0.0649, ce_loss=0.0134, contrastive_loss=0.0517, acc=0.708]
+Epoch 7: Train Loss: 0.0649, CE Loss: 0.0134, Contrastive Loss: 0.0517, Acc: 0.7075 | Test Loss: 0.2093, CE Loss: 0.0435, Contrastive Loss: 0.1666, Acc: 0.6000
+Train Epoch 8: 100%|██████████| 7/7 [00:11<00:00,  1.71s/it, loss=0.0646, ce_loss=0.0131, contrastive_loss=0.0518, acc=0.69]
+Epoch 8: Train Loss: 0.0646, CE Loss: 0.0131, Contrastive Loss: 0.0518, Acc: 0.6900 | Test Loss: 0.2045, CE Loss: 0.0423, Contrastive Loss: 0.1631, Acc: 0.6000
+Early stopping triggered at epoch 8
+dict_keys(['raw_data', 'features', 'arousal_label', 'valence_label', 'subject_list', 'ch_info', 'info'])
+EEG: 1-70filer, 50Hz notch, 256Hz resample;
+Subject : 1-30 subject, no 3,9,12,15,16,25 subject; 24 person, 20 trial, 32 EEG channel, 7 pps channels;
+Labels :    Arousal: 0:["Sadness", "Disgust", "Neutral"]、1:["Joy, Happiness", "Amusement"] 2:["Surprise", "Fear", "Anger", "Anxiety"]
+    Valence: 0:["Fear", "Anger", "Disgust", "Sadness", "Anxiety"] 1:["Surprise", "Neutral"] 2:["Joy, Happiness", "Amusement"]
+Eye Track data : DistanceLeft，PupilLeft，ValidityLeft，Distance Right，Pupil Right，Validity Right，Fixation Index，Gaze Point X，Gaze Point Y，Fixation Duration
+     PPS data : ECG, GSR，Resp，Temp，Status
+        Features:
+            	 DE features,
+            	 Eye features: Pupil diameter (mean value, standard deviation, and spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, and 0.6 - 1Hz); Eye's viewing distance from the screen (approach time ratio, avoidance time ratio, approach rate and average approach rate); Blinking (blink depth, blink rate, maximum blink duration, and total eye - closed time);Eye fixation coordinates on the screen (standard deviation, skewness, kurtosis of horizontal and vertical coordinates, average saccade path length, as well as the mean and standard deviation of the standard deviation for each fixation interval as time - domain features); Some frequency - domain features:(spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, 0.6 - 0.8Hz, and 1 - 2Hz); Global features (average fixation time and number of fixation areas) ,
+            	 PPS features: For the ECG signal, features such as heart rate, heart rate variability, and heart rate spectral energy were extracted. For the GSR signal, features including skin conductance, rate of change of skin conductance, and skin conductance spectral energy were extracted. The skin temperature signal encompasses features like skin temperature, rate of change of skin temperature, and skin temperature spectral energy. As for the respiratory signal, features such as respiratory rate, rate of change of respiratory rate, and respiratory rate spectral energy were extracted.
+1
+Train Epoch 1: 100%|██████████| 7/7 [00:12<00:00,  1.77s/it, loss=0.0666, ce_loss=0.0135, contrastive_loss=0.0531, acc=0.675]
+Epoch 1: Train Loss: 0.0666, CE Loss: 0.0135, Contrastive Loss: 0.0531, Acc: 0.6750 | Test Loss: 0.2091, CE Loss: 0.0484, Contrastive Loss: 0.1608, Acc: 0.4000
+Train Epoch 2: 100%|██████████| 7/7 [00:11<00:00,  1.68s/it, loss=0.0657, ce_loss=0.0134, contrastive_loss=0.0523, acc=0.71]
+Train Epoch 3:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 2: Train Loss: 0.0657, CE Loss: 0.0134, Contrastive Loss: 0.0523, Acc: 0.7100 | Test Loss: 0.2133, CE Loss: 0.0513, Contrastive Loss: 0.1622, Acc: 0.3500
+Train Epoch 3: 100%|██████████| 7/7 [00:11<00:00,  1.71s/it, loss=0.0645, ce_loss=0.0126, contrastive_loss=0.052, acc=0.705]
+Train Epoch 4:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 3: Train Loss: 0.0645, CE Loss: 0.0126, Contrastive Loss: 0.0520, Acc: 0.7050 | Test Loss: 0.2122, CE Loss: 0.0511, Contrastive Loss: 0.1615, Acc: 0.3500
+Train Epoch 4: 100%|██████████| 7/7 [00:11<00:00,  1.66s/it, loss=0.0629, ce_loss=0.0122, contrastive_loss=0.0508, acc=0.705]
+Train Epoch 5:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 4: Train Loss: 0.0629, CE Loss: 0.0122, Contrastive Loss: 0.0508, Acc: 0.7050 | Test Loss: 0.2117, CE Loss: 0.0505, Contrastive Loss: 0.1616, Acc: 0.3500
+Train Epoch 5: 100%|██████████| 7/7 [00:11<00:00,  1.68s/it, loss=0.0639, ce_loss=0.0129, contrastive_loss=0.0511, acc=0.695]
+Train Epoch 6:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 5: Train Loss: 0.0639, CE Loss: 0.0129, Contrastive Loss: 0.0511, Acc: 0.6950 | Test Loss: 0.2164, CE Loss: 0.0531, Contrastive Loss: 0.1639, Acc: 0.3500
+Train Epoch 6: 100%|██████████| 7/7 [00:11<00:00,  1.67s/it, loss=0.0627, ce_loss=0.0121, contrastive_loss=0.0508, acc=0.71]
+Epoch 6: Train Loss: 0.0627, CE Loss: 0.0121, Contrastive Loss: 0.0508, Acc: 0.7100 | Test Loss: 0.2075, CE Loss: 0.0464, Contrastive Loss: 0.1617, Acc: 0.5000
+Train Epoch 7: 100%|██████████| 7/7 [00:12<00:00,  1.81s/it, loss=0.0616, ce_loss=0.012, contrastive_loss=0.0498, acc=0.73]
+Epoch 7: Train Loss: 0.0616, CE Loss: 0.0120, Contrastive Loss: 0.0498, Acc: 0.7300 | Test Loss: 0.2102, CE Loss: 0.0481, Contrastive Loss: 0.1628, Acc: 0.4000
+Train Epoch 8: 100%|██████████| 7/7 [00:12<00:00,  1.81s/it, loss=0.0623, ce_loss=0.0122, contrastive_loss=0.0504, acc=0.72]
+Epoch 8: Train Loss: 0.0623, CE Loss: 0.0122, Contrastive Loss: 0.0504, Acc: 0.7200 | Test Loss: 0.2119, CE Loss: 0.0493, Contrastive Loss: 0.1633, Acc: 0.4000
+Train Epoch 9: 100%|██████████| 7/7 [00:11<00:00,  1.70s/it, loss=0.0614, ce_loss=0.0115, contrastive_loss=0.0502, acc=0.74]
+Train Epoch 10:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 9: Train Loss: 0.0614, CE Loss: 0.0115, Contrastive Loss: 0.0502, Acc: 0.7400 | Test Loss: 0.2118, CE Loss: 0.0495, Contrastive Loss: 0.1631, Acc: 0.4000
+Train Epoch 10: 100%|██████████| 7/7 [00:12<00:00,  1.83s/it, loss=0.0612, ce_loss=0.0122, contrastive_loss=0.0493, acc=0.73]
+Train Epoch 11:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 10: Train Loss: 0.0612, CE Loss: 0.0122, Contrastive Loss: 0.0493, Acc: 0.7300 | Test Loss: 0.2115, CE Loss: 0.0491, Contrastive Loss: 0.1632, Acc: 0.4000
+Train Epoch 11: 100%|██████████| 7/7 [00:11<00:00,  1.68s/it, loss=0.0623, ce_loss=0.0116, contrastive_loss=0.051, acc=0.74]
+Epoch 11: Train Loss: 0.0623, CE Loss: 0.0116, Contrastive Loss: 0.0510, Acc: 0.7400 | Test Loss: 0.2097, CE Loss: 0.0480, Contrastive Loss: 0.1626, Acc: 0.5000
+Early stopping triggered at epoch 11
+dict_keys(['raw_data', 'features', 'arousal_label', 'valence_label', 'subject_list', 'ch_info', 'info'])
+EEG: 1-70filer, 50Hz notch, 256Hz resample;
+Subject : 1-30 subject, no 3,9,12,15,16,25 subject; 24 person, 20 trial, 32 EEG channel, 7 pps channels;
+Labels :    Arousal: 0:["Sadness", "Disgust", "Neutral"]、1:["Joy, Happiness", "Amusement"] 2:["Surprise", "Fear", "Anger", "Anxiety"]
+    Valence: 0:["Fear", "Anger", "Disgust", "Sadness", "Anxiety"] 1:["Surprise", "Neutral"] 2:["Joy, Happiness", "Amusement"]
+Eye Track data : DistanceLeft，PupilLeft，ValidityLeft，Distance Right，Pupil Right，Validity Right，Fixation Index，Gaze Point X，Gaze Point Y，Fixation Duration
+     PPS data : ECG, GSR，Resp，Temp，Status
+        Features:
+            	 DE features,
+            	 Eye features: Pupil diameter (mean value, standard deviation, and spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, and 0.6 - 1Hz); Eye's viewing distance from the screen (approach time ratio, avoidance time ratio, approach rate and average approach rate); Blinking (blink depth, blink rate, maximum blink duration, and total eye - closed time);Eye fixation coordinates on the screen (standard deviation, skewness, kurtosis of horizontal and vertical coordinates, average saccade path length, as well as the mean and standard deviation of the standard deviation for each fixation interval as time - domain features); Some frequency - domain features:(spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, 0.6 - 0.8Hz, and 1 - 2Hz); Global features (average fixation time and number of fixation areas) ,
+            	 PPS features: For the ECG signal, features such as heart rate, heart rate variability, and heart rate spectral energy were extracted. For the GSR signal, features including skin conductance, rate of change of skin conductance, and skin conductance spectral energy were extracted. The skin temperature signal encompasses features like skin temperature, rate of change of skin temperature, and skin temperature spectral energy. As for the respiratory signal, features such as respiratory rate, rate of change of respiratory rate, and respiratory rate spectral energy were extracted.
+1
+Train Epoch 1: 100%|██████████| 7/7 [00:12<00:00,  1.81s/it, loss=0.0621, ce_loss=0.0125, contrastive_loss=0.0497, acc=0.693]
+Epoch 1: Train Loss: 0.0621, CE Loss: 0.0125, Contrastive Loss: 0.0497, Acc: 0.6925 | Test Loss: 0.1708, CE Loss: 0.0259, Contrastive Loss: 0.1451, Acc: 0.8000
+Train Epoch 2: 100%|██████████| 7/7 [00:12<00:00,  1.80s/it, loss=0.0632, ce_loss=0.012, contrastive_loss=0.0512, acc=0.715]
+Epoch 2: Train Loss: 0.0632, CE Loss: 0.0120, Contrastive Loss: 0.0512, Acc: 0.7150 | Test Loss: 0.1689, CE Loss: 0.0261, Contrastive Loss: 0.1431, Acc: 0.7500
+Train Epoch 3: 100%|██████████| 7/7 [00:12<00:00,  1.81s/it, loss=0.0607, ce_loss=0.0117, contrastive_loss=0.0491, acc=0.728]
+Epoch 3: Train Loss: 0.0607, CE Loss: 0.0117, Contrastive Loss: 0.0491, Acc: 0.7275 | Test Loss: 0.1799, CE Loss: 0.0293, Contrastive Loss: 0.1509, Acc: 0.8000
+Train Epoch 4: 100%|██████████| 7/7 [00:11<00:00,  1.68s/it, loss=0.0603, ce_loss=0.0111, contrastive_loss=0.0494, acc=0.73]
+Train Epoch 5:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 4: Train Loss: 0.0603, CE Loss: 0.0111, Contrastive Loss: 0.0494, Acc: 0.7300 | Test Loss: 0.1850, CE Loss: 0.0328, Contrastive Loss: 0.1526, Acc: 0.8000
+Train Epoch 5: 100%|██████████| 7/7 [00:11<00:00,  1.69s/it, loss=0.0599, ce_loss=0.0109, contrastive_loss=0.0491, acc=0.738]
+Epoch 5: Train Loss: 0.0599, CE Loss: 0.0109, Contrastive Loss: 0.0491, Acc: 0.7375 | Test Loss: 0.1641, CE Loss: 0.0259, Contrastive Loss: 0.1387, Acc: 0.7500
+Train Epoch 6: 100%|██████████| 7/7 [00:11<00:00,  1.71s/it, loss=0.0592, ce_loss=0.0106, contrastive_loss=0.0489, acc=0.723]
+Train Epoch 7:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 6: Train Loss: 0.0592, CE Loss: 0.0106, Contrastive Loss: 0.0489, Acc: 0.7225 | Test Loss: 0.1645, CE Loss: 0.0249, Contrastive Loss: 0.1402, Acc: 0.8000
+Train Epoch 7: 100%|██████████| 7/7 [00:12<00:00,  1.83s/it, loss=0.0607, ce_loss=0.0114, contrastive_loss=0.0495, acc=0.728]
+Train Epoch 8:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 7: Train Loss: 0.0607, CE Loss: 0.0114, Contrastive Loss: 0.0495, Acc: 0.7275 | Test Loss: 0.1677, CE Loss: 0.0255, Contrastive Loss: 0.1429, Acc: 0.8000
+Train Epoch 8: 100%|██████████| 7/7 [00:12<00:00,  1.81s/it, loss=0.0594, ce_loss=0.0105, contrastive_loss=0.0491, acc=0.73]
+Epoch 8: Train Loss: 0.0594, CE Loss: 0.0105, Contrastive Loss: 0.0491, Acc: 0.7300 | Test Loss: 0.1662, CE Loss: 0.0250, Contrastive Loss: 0.1420, Acc: 0.7500
+Train Epoch 9: 100%|██████████| 7/7 [00:11<00:00,  1.68s/it, loss=0.0562, ce_loss=0.01, contrastive_loss=0.0465, acc=0.743]
+Train Epoch 10:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 9: Train Loss: 0.0562, CE Loss: 0.0100, Contrastive Loss: 0.0465, Acc: 0.7425 | Test Loss: 0.1710, CE Loss: 0.0265, Contrastive Loss: 0.1455, Acc: 0.8000
+Train Epoch 10: 100%|██████████| 7/7 [00:12<00:00,  1.80s/it, loss=0.0586, ce_loss=0.0103, contrastive_loss=0.0486, acc=0.765]
+Epoch 10: Train Loss: 0.0586, CE Loss: 0.0103, Contrastive Loss: 0.0486, Acc: 0.7650 | Test Loss: 0.1626, CE Loss: 0.0246, Contrastive Loss: 0.1390, Acc: 0.7500
+Train Epoch 11: 100%|██████████| 7/7 [00:12<00:00,  1.80s/it, loss=0.0555, ce_loss=0.00986, contrastive_loss=0.046, acc=0.762]
+Epoch 11: Train Loss: 0.0555, CE Loss: 0.0099, Contrastive Loss: 0.0460, Acc: 0.7625 | Test Loss: 0.1653, CE Loss: 0.0251, Contrastive Loss: 0.1412, Acc: 0.8000
+Train Epoch 12: 100%|██████████| 7/7 [00:12<00:00,  1.80s/it, loss=0.0573, ce_loss=0.0103, contrastive_loss=0.0474, acc=0.775]
+Train Epoch 13:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 12: Train Loss: 0.0573, CE Loss: 0.0103, Contrastive Loss: 0.0474, Acc: 0.7750 | Test Loss: 0.1636, CE Loss: 0.0250, Contrastive Loss: 0.1396, Acc: 0.7500
+Train Epoch 13: 100%|██████████| 7/7 [00:12<00:00,  1.83s/it, loss=0.0557, ce_loss=0.00934, contrastive_loss=0.0467, acc=0.782]
+Train Epoch 14:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 13: Train Loss: 0.0557, CE Loss: 0.0093, Contrastive Loss: 0.0467, Acc: 0.7825 | Test Loss: 0.1630, CE Loss: 0.0253, Contrastive Loss: 0.1387, Acc: 0.7500
+Train Epoch 14: 100%|██████████| 7/7 [00:11<00:00,  1.68s/it, loss=0.0576, ce_loss=0.0105, contrastive_loss=0.0475, acc=0.777]
+Train Epoch 15:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 14: Train Loss: 0.0576, CE Loss: 0.0105, Contrastive Loss: 0.0475, Acc: 0.7775 | Test Loss: 0.1635, CE Loss: 0.0247, Contrastive Loss: 0.1399, Acc: 0.7500
+Train Epoch 15: 100%|██████████| 7/7 [00:12<00:00,  1.81s/it, loss=0.0555, ce_loss=0.01, contrastive_loss=0.0459, acc=0.762]
+Epoch 15: Train Loss: 0.0555, CE Loss: 0.0100, Contrastive Loss: 0.0459, Acc: 0.7625 | Test Loss: 0.1575, CE Loss: 0.0242, Contrastive Loss: 0.1344, Acc: 0.7500
+Train Epoch 16: 100%|██████████| 7/7 [00:12<00:00,  1.81s/it, loss=0.0548, ce_loss=0.0092, contrastive_loss=0.046, acc=0.782]
+Train Epoch 17:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 16: Train Loss: 0.0548, CE Loss: 0.0092, Contrastive Loss: 0.0460, Acc: 0.7825 | Test Loss: 0.1657, CE Loss: 0.0254, Contrastive Loss: 0.1416, Acc: 0.7500
+Train Epoch 17: 100%|██████████| 7/7 [00:12<00:00,  1.81s/it, loss=0.0556, ce_loss=0.0098, contrastive_loss=0.0462, acc=0.767]
+Epoch 17: Train Loss: 0.0556, CE Loss: 0.0098, Contrastive Loss: 0.0462, Acc: 0.7675 | Test Loss: 0.1516, CE Loss: 0.0248, Contrastive Loss: 0.1279, Acc: 0.7500
+Train Epoch 18: 100%|██████████| 7/7 [00:12<00:00,  1.75s/it, loss=0.0565, ce_loss=0.0106, contrastive_loss=0.0463, acc=0.765]
+Epoch 18: Train Loss: 0.0565, CE Loss: 0.0106, Contrastive Loss: 0.0463, Acc: 0.7650 | Test Loss: 0.1515, CE Loss: 0.0238, Contrastive Loss: 0.1287, Acc: 0.8000
+Train Epoch 19: 100%|██████████| 7/7 [00:12<00:00,  1.78s/it, loss=0.0559, ce_loss=0.00958, contrastive_loss=0.0467, acc=0.782]
+Epoch 19: Train Loss: 0.0559, CE Loss: 0.0096, Contrastive Loss: 0.0467, Acc: 0.7825 | Test Loss: 0.1527, CE Loss: 0.0251, Contrastive Loss: 0.1288, Acc: 0.8000
+Train Epoch 20: 100%|██████████| 7/7 [00:12<00:00,  1.71s/it, loss=0.0541, ce_loss=0.00977, contrastive_loss=0.0447, acc=0.775]
+Epoch 20: Train Loss: 0.0541, CE Loss: 0.0098, Contrastive Loss: 0.0447, Acc: 0.7750 | Test Loss: 0.1494, CE Loss: 0.0260, Contrastive Loss: 0.1246, Acc: 0.8000
+Train Epoch 21: 100%|██████████| 7/7 [00:12<00:00,  1.74s/it, loss=0.0554, ce_loss=0.00953, contrastive_loss=0.0463, acc=0.777]
+Train Epoch 22:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 21: Train Loss: 0.0554, CE Loss: 0.0095, Contrastive Loss: 0.0463, Acc: 0.7775 | Test Loss: 0.1506, CE Loss: 0.0297, Contrastive Loss: 0.1221, Acc: 0.8000
+Train Epoch 22: 100%|██████████| 7/7 [00:12<00:00,  1.72s/it, loss=0.055, ce_loss=0.00943, contrastive_loss=0.0459, acc=0.787]
+Train Epoch 23:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 22: Train Loss: 0.0550, CE Loss: 0.0094, Contrastive Loss: 0.0459, Acc: 0.7875 | Test Loss: 0.1567, CE Loss: 0.0288, Contrastive Loss: 0.1291, Acc: 0.8000
+Train Epoch 23: 100%|██████████| 7/7 [00:11<00:00,  1.70s/it, loss=0.0524, ce_loss=0.00889, contrastive_loss=0.0439, acc=0.767]
+Epoch 23: Train Loss: 0.0524, CE Loss: 0.0089, Contrastive Loss: 0.0439, Acc: 0.7675 | Test Loss: 0.1543, CE Loss: 0.0277, Contrastive Loss: 0.1278, Acc: 0.7500
+Train Epoch 24: 100%|██████████| 7/7 [00:11<00:00,  1.69s/it, loss=0.0544, ce_loss=0.00955, contrastive_loss=0.0452, acc=0.79]
+Epoch 24: Train Loss: 0.0544, CE Loss: 0.0095, Contrastive Loss: 0.0452, Acc: 0.7900 | Test Loss: 0.1484, CE Loss: 0.0258, Contrastive Loss: 0.1238, Acc: 0.7500
+Train Epoch 25: 100%|██████████| 7/7 [00:11<00:00,  1.70s/it, loss=0.0539, ce_loss=0.0091, contrastive_loss=0.0452, acc=0.795]
+Epoch 25: Train Loss: 0.0539, CE Loss: 0.0091, Contrastive Loss: 0.0452, Acc: 0.7950 | Test Loss: 0.1572, CE Loss: 0.0265, Contrastive Loss: 0.1320, Acc: 0.7500
+Train Epoch 26: 100%|██████████| 7/7 [00:11<00:00,  1.69s/it, loss=0.0534, ce_loss=0.00904, contrastive_loss=0.0449, acc=0.807]
+Train Epoch 27:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 26: Train Loss: 0.0534, CE Loss: 0.0090, Contrastive Loss: 0.0449, Acc: 0.8075 | Test Loss: 0.1557, CE Loss: 0.0242, Contrastive Loss: 0.1328, Acc: 0.7500
+Train Epoch 27: 100%|██████████| 7/7 [00:11<00:00,  1.70s/it, loss=0.0521, ce_loss=0.00881, contrastive_loss=0.0437, acc=0.777]
+Train Epoch 28:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 27: Train Loss: 0.0521, CE Loss: 0.0088, Contrastive Loss: 0.0437, Acc: 0.7775 | Test Loss: 0.1521, CE Loss: 0.0277, Contrastive Loss: 0.1257, Acc: 0.8000
+Train Epoch 28: 100%|██████████| 7/7 [00:11<00:00,  1.65s/it, loss=0.0546, ce_loss=0.00935, contrastive_loss=0.0458, acc=0.81]
+Train Epoch 29:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 28: Train Loss: 0.0546, CE Loss: 0.0094, Contrastive Loss: 0.0458, Acc: 0.8100 | Test Loss: 0.1551, CE Loss: 0.0250, Contrastive Loss: 0.1314, Acc: 0.7500
+Train Epoch 29: 100%|██████████| 7/7 [00:12<00:00,  1.73s/it, loss=0.0523, ce_loss=0.00944, contrastive_loss=0.0433, acc=0.792]
+Epoch 29: Train Loss: 0.0523, CE Loss: 0.0094, Contrastive Loss: 0.0433, Acc: 0.7925 | Test Loss: 0.1490, CE Loss: 0.0244, Contrastive Loss: 0.1259, Acc: 0.7500
+Early stopping triggered at epoch 29
+dict_keys(['raw_data', 'features', 'arousal_label', 'valence_label', 'subject_list', 'ch_info', 'info'])
+EEG: 1-70filer, 50Hz notch, 256Hz resample;
+Subject : 1-30 subject, no 3,9,12,15,16,25 subject; 24 person, 20 trial, 32 EEG channel, 7 pps channels;
+Labels :    Arousal: 0:["Sadness", "Disgust", "Neutral"]、1:["Joy, Happiness", "Amusement"] 2:["Surprise", "Fear", "Anger", "Anxiety"]
+    Valence: 0:["Fear", "Anger", "Disgust", "Sadness", "Anxiety"] 1:["Surprise", "Neutral"] 2:["Joy, Happiness", "Amusement"]
+Eye Track data : DistanceLeft，PupilLeft，ValidityLeft，Distance Right，Pupil Right，Validity Right，Fixation Index，Gaze Point X，Gaze Point Y，Fixation Duration
+     PPS data : ECG, GSR，Resp，Temp，Status
+        Features:
+            	 DE features,
+            	 Eye features: Pupil diameter (mean value, standard deviation, and spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, and 0.6 - 1Hz); Eye's viewing distance from the screen (approach time ratio, avoidance time ratio, approach rate and average approach rate); Blinking (blink depth, blink rate, maximum blink duration, and total eye - closed time);Eye fixation coordinates on the screen (standard deviation, skewness, kurtosis of horizontal and vertical coordinates, average saccade path length, as well as the mean and standard deviation of the standard deviation for each fixation interval as time - domain features); Some frequency - domain features:(spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, 0.6 - 0.8Hz, and 1 - 2Hz); Global features (average fixation time and number of fixation areas) ,
+            	 PPS features: For the ECG signal, features such as heart rate, heart rate variability, and heart rate spectral energy were extracted. For the GSR signal, features including skin conductance, rate of change of skin conductance, and skin conductance spectral energy were extracted. The skin temperature signal encompasses features like skin temperature, rate of change of skin temperature, and skin temperature spectral energy. As for the respiratory signal, features such as respiratory rate, rate of change of respiratory rate, and respiratory rate spectral energy were extracted.
+1
+Train Epoch 1: 100%|██████████| 7/7 [00:12<00:00,  1.74s/it, loss=0.0568, ce_loss=0.00964, contrastive_loss=0.0472, acc=0.757]
+Epoch 1: Train Loss: 0.0568, CE Loss: 0.0096, Contrastive Loss: 0.0472, Acc: 0.7575 | Test Loss: 0.2000, CE Loss: 0.0198, Contrastive Loss: 0.1803, Acc: 0.9000
+Train Epoch 2: 100%|██████████| 7/7 [00:11<00:00,  1.71s/it, loss=0.0586, ce_loss=0.00914, contrastive_loss=0.0495, acc=0.772]
+Epoch 2: Train Loss: 0.0586, CE Loss: 0.0091, Contrastive Loss: 0.0495, Acc: 0.7725 | Test Loss: 0.1846, CE Loss: 0.0197, Contrastive Loss: 0.1651, Acc: 0.9000
+Train Epoch 3: 100%|██████████| 7/7 [00:12<00:00,  1.78s/it, loss=0.0543, ce_loss=0.0105, contrastive_loss=0.0439, acc=0.767]
+Epoch 3: Train Loss: 0.0543, CE Loss: 0.0105, Contrastive Loss: 0.0439, Acc: 0.7675 | Test Loss: 0.1833, CE Loss: 0.0240, Contrastive Loss: 0.1596, Acc: 0.7500
+Train Epoch 4: 100%|██████████| 7/7 [00:11<00:00,  1.69s/it, loss=0.0579, ce_loss=0.00917, contrastive_loss=0.0488, acc=0.805]
+Epoch 4: Train Loss: 0.0579, CE Loss: 0.0092, Contrastive Loss: 0.0488, Acc: 0.8050 | Test Loss: 0.1816, CE Loss: 0.0198, Contrastive Loss: 0.1623, Acc: 0.8500
+Train Epoch 5: 100%|██████████| 7/7 [00:12<00:00,  1.72s/it, loss=0.0543, ce_loss=0.00888, contrastive_loss=0.0455, acc=0.792]
+Epoch 5: Train Loss: 0.0543, CE Loss: 0.0089, Contrastive Loss: 0.0455, Acc: 0.7925 | Test Loss: 0.1796, CE Loss: 0.0172, Contrastive Loss: 0.1629, Acc: 0.8500
+Train Epoch 6: 100%|██████████| 7/7 [00:11<00:00,  1.67s/it, loss=0.0553, ce_loss=0.00993, contrastive_loss=0.0456, acc=0.797]
+Epoch 6: Train Loss: 0.0553, CE Loss: 0.0099, Contrastive Loss: 0.0456, Acc: 0.7975 | Test Loss: 0.1698, CE Loss: 0.0172, Contrastive Loss: 0.1533, Acc: 0.8500
+Train Epoch 7: 100%|██████████| 7/7 [00:12<00:00,  1.79s/it, loss=0.0554, ce_loss=0.00999, contrastive_loss=0.0456, acc=0.79]
+Epoch 7: Train Loss: 0.0554, CE Loss: 0.0100, Contrastive Loss: 0.0456, Acc: 0.7900 | Test Loss: 0.1726, CE Loss: 0.0179, Contrastive Loss: 0.1555, Acc: 0.9500
+Train Epoch 8: 100%|██████████| 7/7 [00:11<00:00,  1.67s/it, loss=0.0533, ce_loss=0.00912, contrastive_loss=0.0444, acc=0.797]
+Epoch 8: Train Loss: 0.0533, CE Loss: 0.0091, Contrastive Loss: 0.0444, Acc: 0.7975 | Test Loss: 0.1659, CE Loss: 0.0164, Contrastive Loss: 0.1503, Acc: 0.9500
+Train Epoch 9: 100%|██████████| 7/7 [00:11<00:00,  1.67s/it, loss=0.0541, ce_loss=0.00829, contrastive_loss=0.046, acc=0.805]
+Epoch 9: Train Loss: 0.0541, CE Loss: 0.0083, Contrastive Loss: 0.0460, Acc: 0.8050 | Test Loss: 0.1775, CE Loss: 0.0192, Contrastive Loss: 0.1594, Acc: 0.8500
+Train Epoch 10: 100%|██████████| 7/7 [00:12<00:00,  1.73s/it, loss=0.0537, ce_loss=0.00828, contrastive_loss=0.0457, acc=0.812]
+Train Epoch 11:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 10: Train Loss: 0.0537, CE Loss: 0.0083, Contrastive Loss: 0.0457, Acc: 0.8125 | Test Loss: 0.1662, CE Loss: 0.0174, Contrastive Loss: 0.1499, Acc: 0.9000
+Train Epoch 11: 100%|██████████| 7/7 [00:11<00:00,  1.65s/it, loss=0.0518, ce_loss=0.00806, contrastive_loss=0.044, acc=0.81]
+Train Epoch 12:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 11: Train Loss: 0.0518, CE Loss: 0.0081, Contrastive Loss: 0.0440, Acc: 0.8100 | Test Loss: 0.1912, CE Loss: 0.0233, Contrastive Loss: 0.1692, Acc: 0.7500
+Train Epoch 12: 100%|██████████| 7/7 [00:12<00:00,  1.71s/it, loss=0.0503, ce_loss=0.00759, contrastive_loss=0.043, acc=0.86]
+Train Epoch 13:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 12: Train Loss: 0.0503, CE Loss: 0.0076, Contrastive Loss: 0.0430, Acc: 0.8600 | Test Loss: 0.1817, CE Loss: 0.0255, Contrastive Loss: 0.1575, Acc: 0.7000
+Train Epoch 13: 100%|██████████| 7/7 [00:11<00:00,  1.65s/it, loss=0.0505, ce_loss=0.00775, contrastive_loss=0.0432, acc=0.843]
+Epoch 13: Train Loss: 0.0505, CE Loss: 0.0077, Contrastive Loss: 0.0432, Acc: 0.8425 | Test Loss: 0.1802, CE Loss: 0.0233, Contrastive Loss: 0.1582, Acc: 0.7000
+Early stopping triggered at epoch 13
+dict_keys(['raw_data', 'features', 'arousal_label', 'valence_label', 'subject_list', 'ch_info', 'info'])
+EEG: 1-70filer, 50Hz notch, 256Hz resample;
+Subject : 1-30 subject, no 3,9,12,15,16,25 subject; 24 person, 20 trial, 32 EEG channel, 7 pps channels;
+Labels :    Arousal: 0:["Sadness", "Disgust", "Neutral"]、1:["Joy, Happiness", "Amusement"] 2:["Surprise", "Fear", "Anger", "Anxiety"]
+    Valence: 0:["Fear", "Anger", "Disgust", "Sadness", "Anxiety"] 1:["Surprise", "Neutral"] 2:["Joy, Happiness", "Amusement"]
+Eye Track data : DistanceLeft，PupilLeft，ValidityLeft，Distance Right，Pupil Right，Validity Right，Fixation Index，Gaze Point X，Gaze Point Y，Fixation Duration
+     PPS data : ECG, GSR，Resp，Temp，Status
+        Features:
+            	 DE features,
+            	 Eye features: Pupil diameter (mean value, standard deviation, and spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, and 0.6 - 1Hz); Eye's viewing distance from the screen (approach time ratio, avoidance time ratio, approach rate and average approach rate); Blinking (blink depth, blink rate, maximum blink duration, and total eye - closed time);Eye fixation coordinates on the screen (standard deviation, skewness, kurtosis of horizontal and vertical coordinates, average saccade path length, as well as the mean and standard deviation of the standard deviation for each fixation interval as time - domain features); Some frequency - domain features:(spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, 0.6 - 0.8Hz, and 1 - 2Hz); Global features (average fixation time and number of fixation areas) ,
+            	 PPS features: For the ECG signal, features such as heart rate, heart rate variability, and heart rate spectral energy were extracted. For the GSR signal, features including skin conductance, rate of change of skin conductance, and skin conductance spectral energy were extracted. The skin temperature signal encompasses features like skin temperature, rate of change of skin temperature, and skin temperature spectral energy. As for the respiratory signal, features such as respiratory rate, rate of change of respiratory rate, and respiratory rate spectral energy were extracted.
+1
+Train Epoch 1: 100%|██████████| 7/7 [00:12<00:00,  1.75s/it, loss=0.0533, ce_loss=0.00891, contrastive_loss=0.0444, acc=0.81]
+Epoch 1: Train Loss: 0.0533, CE Loss: 0.0089, Contrastive Loss: 0.0444, Acc: 0.8100 | Test Loss: 0.1389, CE Loss: 0.0179, Contrastive Loss: 0.1211, Acc: 0.9000
+Train Epoch 2: 100%|██████████| 7/7 [00:11<00:00,  1.71s/it, loss=0.0526, ce_loss=0.00869, contrastive_loss=0.0439, acc=0.82]
+Epoch 2: Train Loss: 0.0526, CE Loss: 0.0087, Contrastive Loss: 0.0439, Acc: 0.8200 | Test Loss: 0.1632, CE Loss: 0.0273, Contrastive Loss: 0.1361, Acc: 0.8000
+Train Epoch 3: 100%|██████████| 7/7 [00:11<00:00,  1.71s/it, loss=0.051, ce_loss=0.00768, contrastive_loss=0.0434, acc=0.825]
+Train Epoch 4:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 3: Train Loss: 0.0510, CE Loss: 0.0077, Contrastive Loss: 0.0434, Acc: 0.8250 | Test Loss: 0.1723, CE Loss: 0.0343, Contrastive Loss: 0.1382, Acc: 0.6500
+Train Epoch 4: 100%|██████████| 7/7 [00:12<00:00,  1.81s/it, loss=0.0509, ce_loss=0.00744, contrastive_loss=0.0435, acc=0.845]
+Epoch 4: Train Loss: 0.0509, CE Loss: 0.0074, Contrastive Loss: 0.0435, Acc: 0.8450 | Test Loss: 0.1689, CE Loss: 0.0307, Contrastive Loss: 0.1387, Acc: 0.7000
+Train Epoch 5: 100%|██████████| 7/7 [00:11<00:00,  1.67s/it, loss=0.0521, ce_loss=0.00709, contrastive_loss=0.0451, acc=0.85]
+Epoch 5: Train Loss: 0.0521, CE Loss: 0.0071, Contrastive Loss: 0.0451, Acc: 0.8500 | Test Loss: 0.1671, CE Loss: 0.0332, Contrastive Loss: 0.1343, Acc: 0.5500
+Train Epoch 6: 100%|██████████| 7/7 [00:12<00:00,  1.72s/it, loss=0.0493, ce_loss=0.00677, contrastive_loss=0.0427, acc=0.86]
+Epoch 6: Train Loss: 0.0493, CE Loss: 0.0068, Contrastive Loss: 0.0427, Acc: 0.8600 | Test Loss: 0.1695, CE Loss: 0.0334, Contrastive Loss: 0.1366, Acc: 0.6000
+Early stopping triggered at epoch 6
+dict_keys(['raw_data', 'features', 'arousal_label', 'valence_label', 'subject_list', 'ch_info', 'info'])
+EEG: 1-70filer, 50Hz notch, 256Hz resample;
+Subject : 1-30 subject, no 3,9,12,15,16,25 subject; 24 person, 20 trial, 32 EEG channel, 7 pps channels;
+Labels :    Arousal: 0:["Sadness", "Disgust", "Neutral"]、1:["Joy, Happiness", "Amusement"] 2:["Surprise", "Fear", "Anger", "Anxiety"]
+    Valence: 0:["Fear", "Anger", "Disgust", "Sadness", "Anxiety"] 1:["Surprise", "Neutral"] 2:["Joy, Happiness", "Amusement"]
+Eye Track data : DistanceLeft，PupilLeft，ValidityLeft，Distance Right，Pupil Right，Validity Right，Fixation Index，Gaze Point X，Gaze Point Y，Fixation Duration
+     PPS data : ECG, GSR，Resp，Temp，Status
+        Features:
+            	 DE features,
+            	 Eye features: Pupil diameter (mean value, standard deviation, and spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, and 0.6 - 1Hz); Eye's viewing distance from the screen (approach time ratio, avoidance time ratio, approach rate and average approach rate); Blinking (blink depth, blink rate, maximum blink duration, and total eye - closed time);Eye fixation coordinates on the screen (standard deviation, skewness, kurtosis of horizontal and vertical coordinates, average saccade path length, as well as the mean and standard deviation of the standard deviation for each fixation interval as time - domain features); Some frequency - domain features:(spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, 0.6 - 0.8Hz, and 1 - 2Hz); Global features (average fixation time and number of fixation areas) ,
+            	 PPS features: For the ECG signal, features such as heart rate, heart rate variability, and heart rate spectral energy were extracted. For the GSR signal, features including skin conductance, rate of change of skin conductance, and skin conductance spectral energy were extracted. The skin temperature signal encompasses features like skin temperature, rate of change of skin temperature, and skin temperature spectral energy. As for the respiratory signal, features such as respiratory rate, rate of change of respiratory rate, and respiratory rate spectral energy were extracted.
+1
+Train Epoch 1: 100%|██████████| 7/7 [00:12<00:00,  1.84s/it, loss=0.0531, ce_loss=0.00792, contrastive_loss=0.0452, acc=0.835]
+Epoch 1: Train Loss: 0.0531, CE Loss: 0.0079, Contrastive Loss: 0.0452, Acc: 0.8350 | Test Loss: 0.1717, CE Loss: 0.0222, Contrastive Loss: 0.1496, Acc: 0.7500
+Train Epoch 2: 100%|██████████| 7/7 [00:12<00:00,  1.74s/it, loss=0.0526, ce_loss=0.00789, contrastive_loss=0.0447, acc=0.84]
+Epoch 2: Train Loss: 0.0526, CE Loss: 0.0079, Contrastive Loss: 0.0447, Acc: 0.8400 | Test Loss: 0.1847, CE Loss: 0.0274, Contrastive Loss: 0.1575, Acc: 0.8000
+Train Epoch 3: 100%|██████████| 7/7 [00:12<00:00,  1.81s/it, loss=0.0491, ce_loss=0.00745, contrastive_loss=0.0417, acc=0.84]
+Epoch 3: Train Loss: 0.0491, CE Loss: 0.0075, Contrastive Loss: 0.0417, Acc: 0.8400 | Test Loss: 0.1658, CE Loss: 0.0210, Contrastive Loss: 0.1451, Acc: 0.8500
+Train Epoch 4: 100%|██████████| 7/7 [00:11<00:00,  1.67s/it, loss=0.0474, ce_loss=0.00623, contrastive_loss=0.0413, acc=0.875]
+Epoch 4: Train Loss: 0.0474, CE Loss: 0.0062, Contrastive Loss: 0.0413, Acc: 0.8750 | Test Loss: 0.1750, CE Loss: 0.0246, Contrastive Loss: 0.1508, Acc: 0.9000
+Train Epoch 5: 100%|██████████| 7/7 [00:11<00:00,  1.71s/it, loss=0.0498, ce_loss=0.00623, contrastive_loss=0.0437, acc=0.868]
+Epoch 5: Train Loss: 0.0498, CE Loss: 0.0062, Contrastive Loss: 0.0437, Acc: 0.8675 | Test Loss: 0.1704, CE Loss: 0.0242, Contrastive Loss: 0.1467, Acc: 0.8500
+Train Epoch 6: 100%|██████████| 7/7 [00:11<00:00,  1.70s/it, loss=0.0493, ce_loss=0.00663, contrastive_loss=0.0429, acc=0.86]
+Train Epoch 7:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 6: Train Loss: 0.0493, CE Loss: 0.0066, Contrastive Loss: 0.0429, Acc: 0.8600 | Test Loss: 0.1772, CE Loss: 0.0278, Contrastive Loss: 0.1500, Acc: 0.8000
+Train Epoch 7: 100%|██████████| 7/7 [00:12<00:00,  1.73s/it, loss=0.0486, ce_loss=0.00683, contrastive_loss=0.0419, acc=0.86]
+Epoch 7: Train Loss: 0.0486, CE Loss: 0.0068, Contrastive Loss: 0.0419, Acc: 0.8600 | Test Loss: 0.1721, CE Loss: 0.0256, Contrastive Loss: 0.1473, Acc: 0.7500
+Train Epoch 8: 100%|██████████| 7/7 [00:12<00:00,  1.72s/it, loss=0.0454, ce_loss=0.00611, contrastive_loss=0.0395, acc=0.868]
+Epoch 8: Train Loss: 0.0454, CE Loss: 0.0061, Contrastive Loss: 0.0395, Acc: 0.8675 | Test Loss: 0.1742, CE Loss: 0.0275, Contrastive Loss: 0.1475, Acc: 0.8500
+Early stopping triggered at epoch 8
+dict_keys(['raw_data', 'features', 'arousal_label', 'valence_label', 'subject_list', 'ch_info', 'info'])
+EEG: 1-70filer, 50Hz notch, 256Hz resample;
+Subject : 1-30 subject, no 3,9,12,15,16,25 subject; 24 person, 20 trial, 32 EEG channel, 7 pps channels;
+Labels :    Arousal: 0:["Sadness", "Disgust", "Neutral"]、1:["Joy, Happiness", "Amusement"] 2:["Surprise", "Fear", "Anger", "Anxiety"]
+    Valence: 0:["Fear", "Anger", "Disgust", "Sadness", "Anxiety"] 1:["Surprise", "Neutral"] 2:["Joy, Happiness", "Amusement"]
+Eye Track data : DistanceLeft，PupilLeft，ValidityLeft，Distance Right，Pupil Right，Validity Right，Fixation Index，Gaze Point X，Gaze Point Y，Fixation Duration
+     PPS data : ECG, GSR，Resp，Temp，Status
+        Features:
+            	 DE features,
+            	 Eye features: Pupil diameter (mean value, standard deviation, and spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, and 0.6 - 1Hz); Eye's viewing distance from the screen (approach time ratio, avoidance time ratio, approach rate and average approach rate); Blinking (blink depth, blink rate, maximum blink duration, and total eye - closed time);Eye fixation coordinates on the screen (standard deviation, skewness, kurtosis of horizontal and vertical coordinates, average saccade path length, as well as the mean and standard deviation of the standard deviation for each fixation interval as time - domain features); Some frequency - domain features:(spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, 0.6 - 0.8Hz, and 1 - 2Hz); Global features (average fixation time and number of fixation areas) ,
+            	 PPS features: For the ECG signal, features such as heart rate, heart rate variability, and heart rate spectral energy were extracted. For the GSR signal, features including skin conductance, rate of change of skin conductance, and skin conductance spectral energy were extracted. The skin temperature signal encompasses features like skin temperature, rate of change of skin temperature, and skin temperature spectral energy. As for the respiratory signal, features such as respiratory rate, rate of change of respiratory rate, and respiratory rate spectral energy were extracted.
+1
+Train Epoch 1: 100%|██████████| 7/7 [00:12<00:00,  1.78s/it, loss=0.0496, ce_loss=0.00645, contrastive_loss=0.0432, acc=0.855]
+Epoch 1: Train Loss: 0.0496, CE Loss: 0.0064, Contrastive Loss: 0.0432, Acc: 0.8550 | Test Loss: 0.1850, CE Loss: 0.0508, Contrastive Loss: 0.1342, Acc: 0.5500
+Train Epoch 2: 100%|██████████| 7/7 [00:12<00:00,  1.73s/it, loss=0.0467, ce_loss=0.00631, contrastive_loss=0.0405, acc=0.863]
+Epoch 2: Train Loss: 0.0467, CE Loss: 0.0063, Contrastive Loss: 0.0405, Acc: 0.8625 | Test Loss: 0.1574, CE Loss: 0.0247, Contrastive Loss: 0.1329, Acc: 0.8000
+Train Epoch 3: 100%|██████████| 7/7 [00:11<00:00,  1.70s/it, loss=0.0465, ce_loss=0.00627, contrastive_loss=0.0403, acc=0.838]
+Train Epoch 4:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 3: Train Loss: 0.0465, CE Loss: 0.0063, Contrastive Loss: 0.0403, Acc: 0.8375 | Test Loss: 0.1685, CE Loss: 0.0394, Contrastive Loss: 0.1294, Acc: 0.7000
+Train Epoch 4: 100%|██████████| 7/7 [00:12<00:00,  1.72s/it, loss=0.0472, ce_loss=0.00601, contrastive_loss=0.0413, acc=0.858]
+Train Epoch 5:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 4: Train Loss: 0.0472, CE Loss: 0.0060, Contrastive Loss: 0.0413, Acc: 0.8575 | Test Loss: 0.1927, CE Loss: 0.0560, Contrastive Loss: 0.1371, Acc: 0.5000
+Train Epoch 5: 100%|██████████| 7/7 [00:12<00:00,  1.73s/it, loss=0.0458, ce_loss=0.0059, contrastive_loss=0.0401, acc=0.882]
+Epoch 5: Train Loss: 0.0458, CE Loss: 0.0059, Contrastive Loss: 0.0401, Acc: 0.8825 | Test Loss: 0.2001, CE Loss: 0.0639, Contrastive Loss: 0.1367, Acc: 0.5000
+Train Epoch 6: 100%|██████████| 7/7 [00:11<00:00,  1.67s/it, loss=0.0463, ce_loss=0.0055, contrastive_loss=0.0409, acc=0.877]
+Train Epoch 7:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 6: Train Loss: 0.0463, CE Loss: 0.0055, Contrastive Loss: 0.0409, Acc: 0.8775 | Test Loss: 0.1587, CE Loss: 0.0274, Contrastive Loss: 0.1319, Acc: 0.7500
+Train Epoch 7: 100%|██████████| 7/7 [00:12<00:00,  1.78s/it, loss=0.0457, ce_loss=0.00659, contrastive_loss=0.0393, acc=0.87]
+Epoch 7: Train Loss: 0.0457, CE Loss: 0.0066, Contrastive Loss: 0.0393, Acc: 0.8700 | Test Loss: 0.1682, CE Loss: 0.0285, Contrastive Loss: 0.1403, Acc: 0.8000
+Early stopping triggered at epoch 7
+dict_keys(['raw_data', 'features', 'arousal_label', 'valence_label', 'subject_list', 'ch_info', 'info'])
+EEG: 1-70filer, 50Hz notch, 256Hz resample;
+Subject : 1-30 subject, no 3,9,12,15,16,25 subject; 24 person, 20 trial, 32 EEG channel, 7 pps channels;
+Labels :    Arousal: 0:["Sadness", "Disgust", "Neutral"]、1:["Joy, Happiness", "Amusement"] 2:["Surprise", "Fear", "Anger", "Anxiety"]
+    Valence: 0:["Fear", "Anger", "Disgust", "Sadness", "Anxiety"] 1:["Surprise", "Neutral"] 2:["Joy, Happiness", "Amusement"]
+Eye Track data : DistanceLeft，PupilLeft，ValidityLeft，Distance Right，Pupil Right，Validity Right，Fixation Index，Gaze Point X，Gaze Point Y，Fixation Duration
+     PPS data : ECG, GSR，Resp，Temp，Status
+        Features:
+            	 DE features,
+            	 Eye features: Pupil diameter (mean value, standard deviation, and spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, and 0.6 - 1Hz); Eye's viewing distance from the screen (approach time ratio, avoidance time ratio, approach rate and average approach rate); Blinking (blink depth, blink rate, maximum blink duration, and total eye - closed time);Eye fixation coordinates on the screen (standard deviation, skewness, kurtosis of horizontal and vertical coordinates, average saccade path length, as well as the mean and standard deviation of the standard deviation for each fixation interval as time - domain features); Some frequency - domain features:(spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, 0.6 - 0.8Hz, and 1 - 2Hz); Global features (average fixation time and number of fixation areas) ,
+            	 PPS features: For the ECG signal, features such as heart rate, heart rate variability, and heart rate spectral energy were extracted. For the GSR signal, features including skin conductance, rate of change of skin conductance, and skin conductance spectral energy were extracted. The skin temperature signal encompasses features like skin temperature, rate of change of skin temperature, and skin temperature spectral energy. As for the respiratory signal, features such as respiratory rate, rate of change of respiratory rate, and respiratory rate spectral energy were extracted.
+1
+Train Epoch 1: 100%|██████████| 7/7 [00:13<00:00,  1.91s/it, loss=0.0469, ce_loss=0.00624, contrastive_loss=0.0407, acc=0.868]
+Epoch 1: Train Loss: 0.0469, CE Loss: 0.0062, Contrastive Loss: 0.0407, Acc: 0.8675 | Test Loss: 0.1618, CE Loss: 0.0221, Contrastive Loss: 0.1398, Acc: 0.8500
+Train Epoch 2: 100%|██████████| 7/7 [00:12<00:00,  1.72s/it, loss=0.0448, ce_loss=0.00553, contrastive_loss=0.0393, acc=0.887]
+Epoch 2: Train Loss: 0.0448, CE Loss: 0.0055, Contrastive Loss: 0.0393, Acc: 0.8875 | Test Loss: 0.1919, CE Loss: 0.0249, Contrastive Loss: 0.1673, Acc: 0.7500
+Train Epoch 3: 100%|██████████| 7/7 [00:11<00:00,  1.67s/it, loss=0.0442, ce_loss=0.00549, contrastive_loss=0.0388, acc=0.887]
+Epoch 3: Train Loss: 0.0442, CE Loss: 0.0055, Contrastive Loss: 0.0388, Acc: 0.8875 | Test Loss: 0.1146, CE Loss: 0.0184, Contrastive Loss: 0.0965, Acc: 0.8500
+Train Epoch 4: 100%|██████████| 7/7 [00:11<00:00,  1.66s/it, loss=0.0451, ce_loss=0.0057, contrastive_loss=0.0395, acc=0.895]
+Train Epoch 5:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 4: Train Loss: 0.0451, CE Loss: 0.0057, Contrastive Loss: 0.0395, Acc: 0.8950 | Test Loss: 0.1151, CE Loss: 0.0120, Contrastive Loss: 0.1034, Acc: 0.9000
+Train Epoch 5: 100%|██████████| 7/7 [00:12<00:00,  1.74s/it, loss=0.0457, ce_loss=0.00547, contrastive_loss=0.0404, acc=0.877]
+Epoch 5: Train Loss: 0.0457, CE Loss: 0.0055, Contrastive Loss: 0.0404, Acc: 0.8775 | Test Loss: 0.1101, CE Loss: 0.0148, Contrastive Loss: 0.0956, Acc: 0.8500
+Train Epoch 6: 100%|██████████| 7/7 [00:12<00:00,  1.72s/it, loss=0.0409, ce_loss=0.00543, contrastive_loss=0.0356, acc=0.88]
+Epoch 6: Train Loss: 0.0409, CE Loss: 0.0054, Contrastive Loss: 0.0356, Acc: 0.8800 | Test Loss: 0.1129, CE Loss: 0.0119, Contrastive Loss: 0.1014, Acc: 0.9500
+Train Epoch 7: 100%|██████████| 7/7 [00:12<00:00,  1.81s/it, loss=0.0434, ce_loss=0.00508, contrastive_loss=0.0385, acc=0.9]
+Epoch 7: Train Loss: 0.0434, CE Loss: 0.0051, Contrastive Loss: 0.0385, Acc: 0.9000 | Test Loss: 0.1018, CE Loss: 0.0082, Contrastive Loss: 0.0941, Acc: 1.0000
+Train Epoch 8: 100%|██████████| 7/7 [00:12<00:00,  1.72s/it, loss=0.0448, ce_loss=0.0062, contrastive_loss=0.0388, acc=0.9]
+Train Epoch 9:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 8: Train Loss: 0.0448, CE Loss: 0.0062, Contrastive Loss: 0.0388, Acc: 0.9000 | Test Loss: 0.1088, CE Loss: 0.0118, Contrastive Loss: 0.0975, Acc: 0.9000
+Train Epoch 9: 100%|██████████| 7/7 [00:11<00:00,  1.66s/it, loss=0.043, ce_loss=0.00542, contrastive_loss=0.0378, acc=0.895]
+Epoch 9: Train Loss: 0.0430, CE Loss: 0.0054, Contrastive Loss: 0.0378, Acc: 0.8950 | Test Loss: 0.1108, CE Loss: 0.0116, Contrastive Loss: 0.0998, Acc: 0.9500
+Train Epoch 10: 100%|██████████| 7/7 [00:11<00:00,  1.66s/it, loss=0.041, ce_loss=0.00395, contrastive_loss=0.0373, acc=0.92]
+Epoch 10: Train Loss: 0.0410, CE Loss: 0.0040, Contrastive Loss: 0.0373, Acc: 0.9200 | Test Loss: 0.1096, CE Loss: 0.0107, Contrastive Loss: 0.0995, Acc: 0.9500
+Train Epoch 11: 100%|██████████| 7/7 [00:12<00:00,  1.81s/it, loss=0.0378, ce_loss=0.00451, contrastive_loss=0.0336, acc=0.907]
+Epoch 11: Train Loss: 0.0378, CE Loss: 0.0045, Contrastive Loss: 0.0336, Acc: 0.9075 | Test Loss: 0.1118, CE Loss: 0.0129, Contrastive Loss: 0.0997, Acc: 0.9000
+Train Epoch 12: 100%|██████████| 7/7 [00:12<00:00,  1.81s/it, loss=0.042, ce_loss=0.00413, contrastive_loss=0.0381, acc=0.902]
+Epoch 12: Train Loss: 0.0420, CE Loss: 0.0041, Contrastive Loss: 0.0381, Acc: 0.9025 | Test Loss: 0.1156, CE Loss: 0.0144, Contrastive Loss: 0.1020, Acc: 0.8500
+Early stopping triggered at epoch 12
+dict_keys(['raw_data', 'features', 'arousal_label', 'valence_label', 'subject_list', 'ch_info', 'info'])
+EEG: 1-70filer, 50Hz notch, 256Hz resample;
+Subject : 1-30 subject, no 3,9,12,15,16,25 subject; 24 person, 20 trial, 32 EEG channel, 7 pps channels;
+Labels :    Arousal: 0:["Sadness", "Disgust", "Neutral"]、1:["Joy, Happiness", "Amusement"] 2:["Surprise", "Fear", "Anger", "Anxiety"]
+    Valence: 0:["Fear", "Anger", "Disgust", "Sadness", "Anxiety"] 1:["Surprise", "Neutral"] 2:["Joy, Happiness", "Amusement"]
+Eye Track data : DistanceLeft，PupilLeft，ValidityLeft，Distance Right，Pupil Right，Validity Right，Fixation Index，Gaze Point X，Gaze Point Y，Fixation Duration
+     PPS data : ECG, GSR，Resp，Temp，Status
+        Features:
+            	 DE features,
+            	 Eye features: Pupil diameter (mean value, standard deviation, and spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, and 0.6 - 1Hz); Eye's viewing distance from the screen (approach time ratio, avoidance time ratio, approach rate and average approach rate); Blinking (blink depth, blink rate, maximum blink duration, and total eye - closed time);Eye fixation coordinates on the screen (standard deviation, skewness, kurtosis of horizontal and vertical coordinates, average saccade path length, as well as the mean and standard deviation of the standard deviation for each fixation interval as time - domain features); Some frequency - domain features:(spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, 0.6 - 0.8Hz, and 1 - 2Hz); Global features (average fixation time and number of fixation areas) ,
+            	 PPS features: For the ECG signal, features such as heart rate, heart rate variability, and heart rate spectral energy were extracted. For the GSR signal, features including skin conductance, rate of change of skin conductance, and skin conductance spectral energy were extracted. The skin temperature signal encompasses features like skin temperature, rate of change of skin temperature, and skin temperature spectral energy. As for the respiratory signal, features such as respiratory rate, rate of change of respiratory rate, and respiratory rate spectral energy were extracted.
+1
+Train Epoch 1: 100%|██████████| 7/7 [00:13<00:00,  1.92s/it, loss=0.0427, ce_loss=0.00486, contrastive_loss=0.0378, acc=0.907]
+Epoch 1: Train Loss: 0.0427, CE Loss: 0.0049, Contrastive Loss: 0.0378, Acc: 0.9075 | Test Loss: 0.0922, CE Loss: 0.0097, Contrastive Loss: 0.0825, Acc: 0.9500
+Train Epoch 2: 100%|██████████| 7/7 [00:11<00:00,  1.67s/it, loss=0.0427, ce_loss=0.00491, contrastive_loss=0.0378, acc=0.902]
+Train Epoch 3:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 2: Train Loss: 0.0427, CE Loss: 0.0049, Contrastive Loss: 0.0378, Acc: 0.9025 | Test Loss: 0.1552, CE Loss: 0.0203, Contrastive Loss: 0.1351, Acc: 0.8500
+Train Epoch 3: 100%|██████████| 7/7 [00:12<00:00,  1.81s/it, loss=0.0405, ce_loss=0.00463, contrastive_loss=0.0359, acc=0.92]
+Epoch 3: Train Loss: 0.0405, CE Loss: 0.0046, Contrastive Loss: 0.0359, Acc: 0.9200 | Test Loss: 0.0831, CE Loss: 0.0070, Contrastive Loss: 0.0762, Acc: 0.9500
+Train Epoch 4: 100%|██████████| 7/7 [00:12<00:00,  1.81s/it, loss=0.0419, ce_loss=0.00432, contrastive_loss=0.0376, acc=0.907]
+Epoch 4: Train Loss: 0.0419, CE Loss: 0.0043, Contrastive Loss: 0.0376, Acc: 0.9075 | Test Loss: 0.0854, CE Loss: 0.0084, Contrastive Loss: 0.0773, Acc: 0.9500
+Train Epoch 5: 100%|██████████| 7/7 [00:12<00:00,  1.79s/it, loss=0.0429, ce_loss=0.00467, contrastive_loss=0.0384, acc=0.905]
+Epoch 5: Train Loss: 0.0429, CE Loss: 0.0047, Contrastive Loss: 0.0384, Acc: 0.9050 | Test Loss: 0.0903, CE Loss: 0.0103, Contrastive Loss: 0.0803, Acc: 0.9000
+Train Epoch 6: 100%|██████████| 7/7 [00:11<00:00,  1.67s/it, loss=0.0411, ce_loss=0.00482, contrastive_loss=0.0364, acc=0.91]
+Train Epoch 7:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 6: Train Loss: 0.0411, CE Loss: 0.0048, Contrastive Loss: 0.0364, Acc: 0.9100 | Test Loss: 0.1522, CE Loss: 0.0248, Contrastive Loss: 0.1279, Acc: 0.8000
+Train Epoch 7: 100%|██████████| 7/7 [00:11<00:00,  1.66s/it, loss=0.0377, ce_loss=0.00342, contrastive_loss=0.0344, acc=0.93]
+Epoch 7: Train Loss: 0.0377, CE Loss: 0.0034, Contrastive Loss: 0.0344, Acc: 0.9300 | Test Loss: 0.0838, CE Loss: 0.0093, Contrastive Loss: 0.0748, Acc: 0.9000
+Train Epoch 8: 100%|██████████| 7/7 [00:11<00:00,  1.67s/it, loss=0.0398, ce_loss=0.00361, contrastive_loss=0.0363, acc=0.935]
+Epoch 8: Train Loss: 0.0398, CE Loss: 0.0036, Contrastive Loss: 0.0363, Acc: 0.9350 | Test Loss: 0.0765, CE Loss: 0.0034, Contrastive Loss: 0.0735, Acc: 1.0000
+Train Epoch 9: 100%|██████████| 7/7 [00:12<00:00,  1.72s/it, loss=0.0413, ce_loss=0.00432, contrastive_loss=0.0372, acc=0.915]
+Epoch 9: Train Loss: 0.0413, CE Loss: 0.0043, Contrastive Loss: 0.0372, Acc: 0.9150 | Test Loss: 0.0709, CE Loss: 0.0077, Contrastive Loss: 0.0636, Acc: 0.9000
+Train Epoch 10: 100%|██████████| 7/7 [00:11<00:00,  1.66s/it, loss=0.0383, ce_loss=0.00317, contrastive_loss=0.0353, acc=0.94]
+Epoch 10: Train Loss: 0.0383, CE Loss: 0.0032, Contrastive Loss: 0.0353, Acc: 0.9400 | Test Loss: 0.0837, CE Loss: 0.0085, Contrastive Loss: 0.0757, Acc: 0.9500
+Train Epoch 11: 100%|██████████| 7/7 [00:11<00:00,  1.71s/it, loss=0.0358, ce_loss=0.00364, contrastive_loss=0.0324, acc=0.943]
+Train Epoch 12:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 11: Train Loss: 0.0358, CE Loss: 0.0036, Contrastive Loss: 0.0324, Acc: 0.9425 | Test Loss: 0.0714, CE Loss: 0.0058, Contrastive Loss: 0.0660, Acc: 0.9500
+Train Epoch 12: 100%|██████████| 7/7 [00:12<00:00,  1.73s/it, loss=0.0392, ce_loss=0.00381, contrastive_loss=0.0356, acc=0.938]
+Epoch 12: Train Loss: 0.0392, CE Loss: 0.0038, Contrastive Loss: 0.0356, Acc: 0.9375 | Test Loss: 0.0868, CE Loss: 0.0106, Contrastive Loss: 0.0766, Acc: 0.9500
+Train Epoch 13: 100%|██████████| 7/7 [00:11<00:00,  1.70s/it, loss=0.037, ce_loss=0.00319, contrastive_loss=0.0341, acc=0.945]
+Epoch 13: Train Loss: 0.0370, CE Loss: 0.0032, Contrastive Loss: 0.0341, Acc: 0.9450 | Test Loss: 0.0646, CE Loss: 0.0050, Contrastive Loss: 0.0600, Acc: 0.9500
+Train Epoch 14: 100%|██████████| 7/7 [00:12<00:00,  1.73s/it, loss=0.0344, ce_loss=0.00302, contrastive_loss=0.0316, acc=0.943]
+Train Epoch 15:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 14: Train Loss: 0.0344, CE Loss: 0.0030, Contrastive Loss: 0.0316, Acc: 0.9425 | Test Loss: 0.0693, CE Loss: 0.0047, Contrastive Loss: 0.0650, Acc: 0.9500
+Train Epoch 15: 100%|██████████| 7/7 [00:11<00:00,  1.67s/it, loss=0.0351, ce_loss=0.00282, contrastive_loss=0.0325, acc=0.955]
+Train Epoch 16:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 15: Train Loss: 0.0351, CE Loss: 0.0028, Contrastive Loss: 0.0325, Acc: 0.9550 | Test Loss: 0.0704, CE Loss: 0.0047, Contrastive Loss: 0.0661, Acc: 0.9500
+Train Epoch 16: 100%|██████████| 7/7 [00:12<00:00,  1.74s/it, loss=0.0367, ce_loss=0.003, contrastive_loss=0.034, acc=0.945]
+Train Epoch 17:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 16: Train Loss: 0.0367, CE Loss: 0.0030, Contrastive Loss: 0.0340, Acc: 0.9450 | Test Loss: 0.0850, CE Loss: 0.0139, Contrastive Loss: 0.0717, Acc: 0.9000
+Train Epoch 17: 100%|██████████| 7/7 [00:12<00:00,  1.72s/it, loss=0.0329, ce_loss=0.00288, contrastive_loss=0.0303, acc=0.938]
+Train Epoch 18:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 17: Train Loss: 0.0329, CE Loss: 0.0029, Contrastive Loss: 0.0303, Acc: 0.9375 | Test Loss: 0.0815, CE Loss: 0.0104, Contrastive Loss: 0.0717, Acc: 0.9500
+Train Epoch 18: 100%|██████████| 7/7 [00:12<00:00,  1.72s/it, loss=0.0328, ce_loss=0.00284, contrastive_loss=0.0302, acc=0.955]
+Epoch 18: Train Loss: 0.0328, CE Loss: 0.0028, Contrastive Loss: 0.0302, Acc: 0.9550 | Test Loss: 0.0722, CE Loss: 0.0089, Contrastive Loss: 0.0638, Acc: 0.9000
+Early stopping triggered at epoch 18
+dict_keys(['raw_data', 'features', 'arousal_label', 'valence_label', 'subject_list', 'ch_info', 'info'])
+EEG: 1-70filer, 50Hz notch, 256Hz resample;
+Subject : 1-30 subject, no 3,9,12,15,16,25 subject; 24 person, 20 trial, 32 EEG channel, 7 pps channels;
+Labels :    Arousal: 0:["Sadness", "Disgust", "Neutral"]、1:["Joy, Happiness", "Amusement"] 2:["Surprise", "Fear", "Anger", "Anxiety"]
+    Valence: 0:["Fear", "Anger", "Disgust", "Sadness", "Anxiety"] 1:["Surprise", "Neutral"] 2:["Joy, Happiness", "Amusement"]
+Eye Track data : DistanceLeft，PupilLeft，ValidityLeft，Distance Right，Pupil Right，Validity Right，Fixation Index，Gaze Point X，Gaze Point Y，Fixation Duration
+     PPS data : ECG, GSR，Resp，Temp，Status
+        Features:
+            	 DE features,
+            	 Eye features: Pupil diameter (mean value, standard deviation, and spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, and 0.6 - 1Hz); Eye's viewing distance from the screen (approach time ratio, avoidance time ratio, approach rate and average approach rate); Blinking (blink depth, blink rate, maximum blink duration, and total eye - closed time);Eye fixation coordinates on the screen (standard deviation, skewness, kurtosis of horizontal and vertical coordinates, average saccade path length, as well as the mean and standard deviation of the standard deviation for each fixation interval as time - domain features); Some frequency - domain features:(spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, 0.6 - 0.8Hz, and 1 - 2Hz); Global features (average fixation time and number of fixation areas) ,
+            	 PPS features: For the ECG signal, features such as heart rate, heart rate variability, and heart rate spectral energy were extracted. For the GSR signal, features including skin conductance, rate of change of skin conductance, and skin conductance spectral energy were extracted. The skin temperature signal encompasses features like skin temperature, rate of change of skin temperature, and skin temperature spectral energy. As for the respiratory signal, features such as respiratory rate, rate of change of respiratory rate, and respiratory rate spectral energy were extracted.
+1
+Train Epoch 1: 100%|██████████| 7/7 [00:13<00:00,  1.90s/it, loss=0.0373, ce_loss=0.00311, contrastive_loss=0.0342, acc=0.94]
+Epoch 1: Train Loss: 0.0373, CE Loss: 0.0031, Contrastive Loss: 0.0342, Acc: 0.9400 | Test Loss: 0.1219, CE Loss: 0.0088, Contrastive Loss: 0.1132, Acc: 0.9500
+Train Epoch 2: 100%|██████████| 7/7 [00:11<00:00,  1.67s/it, loss=0.0385, ce_loss=0.0036, contrastive_loss=0.035, acc=0.925]
+Train Epoch 3:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 2: Train Loss: 0.0385, CE Loss: 0.0036, Contrastive Loss: 0.0350, Acc: 0.9250 | Test Loss: 0.1242, CE Loss: 0.0118, Contrastive Loss: 0.1125, Acc: 0.9000
+Train Epoch 3: 100%|██████████| 7/7 [00:12<00:00,  1.82s/it, loss=0.0394, ce_loss=0.00331, contrastive_loss=0.0361, acc=0.94]
+Epoch 3: Train Loss: 0.0394, CE Loss: 0.0033, Contrastive Loss: 0.0361, Acc: 0.9400 | Test Loss: 0.1128, CE Loss: 0.0129, Contrastive Loss: 0.1001, Acc: 0.9000
+Train Epoch 4: 100%|██████████| 7/7 [00:11<00:00,  1.69s/it, loss=0.0347, ce_loss=0.00317, contrastive_loss=0.0316, acc=0.95]
+Epoch 4: Train Loss: 0.0347, CE Loss: 0.0032, Contrastive Loss: 0.0316, Acc: 0.9500 | Test Loss: 0.1112, CE Loss: 0.0129, Contrastive Loss: 0.0987, Acc: 0.8500
+Train Epoch 5: 100%|██████████| 7/7 [00:12<00:00,  1.72s/it, loss=0.0335, ce_loss=0.00312, contrastive_loss=0.0305, acc=0.948]
+Train Epoch 6:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 5: Train Loss: 0.0335, CE Loss: 0.0031, Contrastive Loss: 0.0305, Acc: 0.9475 | Test Loss: 0.1122, CE Loss: 0.0085, Contrastive Loss: 0.1041, Acc: 0.9000
+Train Epoch 6: 100%|██████████| 7/7 [00:12<00:00,  1.71s/it, loss=0.0323, ce_loss=0.00229, contrastive_loss=0.0301, acc=0.963]
+Epoch 6: Train Loss: 0.0323, CE Loss: 0.0023, Contrastive Loss: 0.0301, Acc: 0.9625 | Test Loss: 0.1458, CE Loss: 0.0255, Contrastive Loss: 0.1208, Acc: 0.8000
+Train Epoch 7: 100%|██████████| 7/7 [00:11<00:00,  1.68s/it, loss=0.0302, ce_loss=0.00261, contrastive_loss=0.0277, acc=0.958]
+Epoch 7: Train Loss: 0.0302, CE Loss: 0.0026, Contrastive Loss: 0.0277, Acc: 0.9575 | Test Loss: 0.1505, CE Loss: 0.0258, Contrastive Loss: 0.1254, Acc: 0.8500
+Train Epoch 8: 100%|██████████| 7/7 [00:11<00:00,  1.66s/it, loss=0.0333, ce_loss=0.00236, contrastive_loss=0.0311, acc=0.963]
+Train Epoch 9:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 8: Train Loss: 0.0333, CE Loss: 0.0024, Contrastive Loss: 0.0311, Acc: 0.9625 | Test Loss: 0.1397, CE Loss: 0.0169, Contrastive Loss: 0.1235, Acc: 0.9000
+Train Epoch 9: 100%|██████████| 7/7 [00:12<00:00,  1.72s/it, loss=0.031, ce_loss=0.00199, contrastive_loss=0.0292, acc=0.968]
+Epoch 9: Train Loss: 0.0310, CE Loss: 0.0020, Contrastive Loss: 0.0292, Acc: 0.9675 | Test Loss: 0.1115, CE Loss: 0.0097, Contrastive Loss: 0.1024, Acc: 0.9500
+Early stopping triggered at epoch 9
+dict_keys(['raw_data', 'features', 'arousal_label', 'valence_label', 'subject_list', 'ch_info', 'info'])
+EEG: 1-70filer, 50Hz notch, 256Hz resample;
+Subject : 1-30 subject, no 3,9,12,15,16,25 subject; 24 person, 20 trial, 32 EEG channel, 7 pps channels;
+Labels :    Arousal: 0:["Sadness", "Disgust", "Neutral"]、1:["Joy, Happiness", "Amusement"] 2:["Surprise", "Fear", "Anger", "Anxiety"]
+    Valence: 0:["Fear", "Anger", "Disgust", "Sadness", "Anxiety"] 1:["Surprise", "Neutral"] 2:["Joy, Happiness", "Amusement"]
+Eye Track data : DistanceLeft，PupilLeft，ValidityLeft，Distance Right，Pupil Right，Validity Right，Fixation Index，Gaze Point X，Gaze Point Y，Fixation Duration
+     PPS data : ECG, GSR，Resp，Temp，Status
+        Features:
+            	 DE features,
+            	 Eye features: Pupil diameter (mean value, standard deviation, and spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, and 0.6 - 1Hz); Eye's viewing distance from the screen (approach time ratio, avoidance time ratio, approach rate and average approach rate); Blinking (blink depth, blink rate, maximum blink duration, and total eye - closed time);Eye fixation coordinates on the screen (standard deviation, skewness, kurtosis of horizontal and vertical coordinates, average saccade path length, as well as the mean and standard deviation of the standard deviation for each fixation interval as time - domain features); Some frequency - domain features:(spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, 0.6 - 0.8Hz, and 1 - 2Hz); Global features (average fixation time and number of fixation areas) ,
+            	 PPS features: For the ECG signal, features such as heart rate, heart rate variability, and heart rate spectral energy were extracted. For the GSR signal, features including skin conductance, rate of change of skin conductance, and skin conductance spectral energy were extracted. The skin temperature signal encompasses features like skin temperature, rate of change of skin temperature, and skin temperature spectral energy. As for the respiratory signal, features such as respiratory rate, rate of change of respiratory rate, and respiratory rate spectral energy were extracted.
+1
+Train Epoch 1: 100%|██████████| 7/7 [00:13<00:00,  1.94s/it, loss=0.0334, ce_loss=0.00269, contrastive_loss=0.0307, acc=0.953]
+Epoch 1: Train Loss: 0.0334, CE Loss: 0.0027, Contrastive Loss: 0.0307, Acc: 0.9525 | Test Loss: 0.0757, CE Loss: 0.0017, Contrastive Loss: 0.0741, Acc: 1.0000
+Train Epoch 2: 100%|██████████| 7/7 [00:12<00:00,  1.81s/it, loss=0.0319, ce_loss=0.00211, contrastive_loss=0.0298, acc=0.968]
+Train Epoch 3:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 2: Train Loss: 0.0319, CE Loss: 0.0021, Contrastive Loss: 0.0298, Acc: 0.9675 | Test Loss: 0.2064, CE Loss: 0.0587, Contrastive Loss: 0.1479, Acc: 0.5000
+Train Epoch 3: 100%|██████████| 7/7 [00:11<00:00,  1.68s/it, loss=0.0339, ce_loss=0.0024, contrastive_loss=0.0315, acc=0.943]
+Epoch 3: Train Loss: 0.0339, CE Loss: 0.0024, Contrastive Loss: 0.0315, Acc: 0.9425 | Test Loss: 0.1719, CE Loss: 0.0369, Contrastive Loss: 0.1353, Acc: 0.6500
+Train Epoch 4: 100%|██████████| 7/7 [00:11<00:00,  1.70s/it, loss=0.0349, ce_loss=0.00212, contrastive_loss=0.0328, acc=0.965]
+Epoch 4: Train Loss: 0.0349, CE Loss: 0.0021, Contrastive Loss: 0.0328, Acc: 0.9650 | Test Loss: 0.0711, CE Loss: 0.0031, Contrastive Loss: 0.0681, Acc: 1.0000
+Train Epoch 5: 100%|██████████| 7/7 [00:12<00:00,  1.81s/it, loss=0.0333, ce_loss=0.00228, contrastive_loss=0.0311, acc=0.953]
+Epoch 5: Train Loss: 0.0333, CE Loss: 0.0023, Contrastive Loss: 0.0311, Acc: 0.9525 | Test Loss: 0.0680, CE Loss: 0.0022, Contrastive Loss: 0.0661, Acc: 1.0000
+Train Epoch 6: 100%|██████████| 7/7 [00:12<00:00,  1.72s/it, loss=0.0341, ce_loss=0.00313, contrastive_loss=0.031, acc=0.958]
+Train Epoch 7:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 6: Train Loss: 0.0341, CE Loss: 0.0031, Contrastive Loss: 0.0310, Acc: 0.9575 | Test Loss: 0.0886, CE Loss: 0.0117, Contrastive Loss: 0.0772, Acc: 0.9500
+Train Epoch 7: 100%|██████████| 7/7 [00:12<00:00,  1.73s/it, loss=0.0363, ce_loss=0.002, contrastive_loss=0.0344, acc=0.958]
+Epoch 7: Train Loss: 0.0363, CE Loss: 0.0020, Contrastive Loss: 0.0344, Acc: 0.9575 | Test Loss: 0.0864, CE Loss: 0.0095, Contrastive Loss: 0.0773, Acc: 0.9500
+Train Epoch 8: 100%|██████████| 7/7 [00:11<00:00,  1.67s/it, loss=0.0367, ce_loss=0.00241, contrastive_loss=0.0344, acc=0.96]
+Epoch 8: Train Loss: 0.0367, CE Loss: 0.0024, Contrastive Loss: 0.0344, Acc: 0.9600 | Test Loss: 0.0838, CE Loss: 0.0048, Contrastive Loss: 0.0794, Acc: 1.0000
+Train Epoch 9: 100%|██████████| 7/7 [00:12<00:00,  1.73s/it, loss=0.031, ce_loss=0.002, contrastive_loss=0.0292, acc=0.965]
+Epoch 9: Train Loss: 0.0310, CE Loss: 0.0020, Contrastive Loss: 0.0292, Acc: 0.9650 | Test Loss: 0.0872, CE Loss: 0.0064, Contrastive Loss: 0.0814, Acc: 0.9500
+Train Epoch 10: 100%|██████████| 7/7 [00:12<00:00,  1.80s/it, loss=0.0301, ce_loss=0.00238, contrastive_loss=0.0279, acc=0.94]
+Epoch 10: Train Loss: 0.0301, CE Loss: 0.0024, Contrastive Loss: 0.0279, Acc: 0.9400 | Test Loss: 0.0920, CE Loss: 0.0054, Contrastive Loss: 0.0871, Acc: 0.9500
+Early stopping triggered at epoch 10
+dict_keys(['raw_data', 'features', 'arousal_label', 'valence_label', 'subject_list', 'ch_info', 'info'])
+EEG: 1-70filer, 50Hz notch, 256Hz resample;
+Subject : 1-30 subject, no 3,9,12,15,16,25 subject; 24 person, 20 trial, 32 EEG channel, 7 pps channels;
+Labels :    Arousal: 0:["Sadness", "Disgust", "Neutral"]、1:["Joy, Happiness", "Amusement"] 2:["Surprise", "Fear", "Anger", "Anxiety"]
+    Valence: 0:["Fear", "Anger", "Disgust", "Sadness", "Anxiety"] 1:["Surprise", "Neutral"] 2:["Joy, Happiness", "Amusement"]
+Eye Track data : DistanceLeft，PupilLeft，ValidityLeft，Distance Right，Pupil Right，Validity Right，Fixation Index，Gaze Point X，Gaze Point Y，Fixation Duration
+     PPS data : ECG, GSR，Resp，Temp，Status
+        Features:
+            	 DE features,
+            	 Eye features: Pupil diameter (mean value, standard deviation, and spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, and 0.6 - 1Hz); Eye's viewing distance from the screen (approach time ratio, avoidance time ratio, approach rate and average approach rate); Blinking (blink depth, blink rate, maximum blink duration, and total eye - closed time);Eye fixation coordinates on the screen (standard deviation, skewness, kurtosis of horizontal and vertical coordinates, average saccade path length, as well as the mean and standard deviation of the standard deviation for each fixation interval as time - domain features); Some frequency - domain features:(spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, 0.6 - 0.8Hz, and 1 - 2Hz); Global features (average fixation time and number of fixation areas) ,
+            	 PPS features: For the ECG signal, features such as heart rate, heart rate variability, and heart rate spectral energy were extracted. For the GSR signal, features including skin conductance, rate of change of skin conductance, and skin conductance spectral energy were extracted. The skin temperature signal encompasses features like skin temperature, rate of change of skin temperature, and skin temperature spectral energy. As for the respiratory signal, features such as respiratory rate, rate of change of respiratory rate, and respiratory rate spectral energy were extracted.
+1
+Train Epoch 1: 100%|██████████| 7/7 [00:13<00:00,  1.89s/it, loss=0.0392, ce_loss=0.00289, contrastive_loss=0.0363, acc=0.955]
+Epoch 1: Train Loss: 0.0392, CE Loss: 0.0029, Contrastive Loss: 0.0363, Acc: 0.9550 | Test Loss: 0.0813, CE Loss: 0.0054, Contrastive Loss: 0.0759, Acc: 1.0000
+Train Epoch 2: 100%|██████████| 7/7 [00:12<00:00,  1.72s/it, loss=0.031, ce_loss=0.00159, contrastive_loss=0.0294, acc=0.978]
+Epoch 2: Train Loss: 0.0310, CE Loss: 0.0016, Contrastive Loss: 0.0294, Acc: 0.9775 | Test Loss: 0.1993, CE Loss: 0.0543, Contrastive Loss: 0.1452, Acc: 0.6500
+Train Epoch 3: 100%|██████████| 7/7 [00:11<00:00,  1.68s/it, loss=0.0292, ce_loss=0.00187, contrastive_loss=0.0274, acc=0.968]
+Train Epoch 4:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 3: Train Loss: 0.0292, CE Loss: 0.0019, Contrastive Loss: 0.0274, Acc: 0.9675 | Test Loss: 0.1515, CE Loss: 0.0265, Contrastive Loss: 0.1253, Acc: 0.8000
+Train Epoch 4: 100%|██████████| 7/7 [00:12<00:00,  1.72s/it, loss=0.0326, ce_loss=0.0031, contrastive_loss=0.0296, acc=0.958]
+Epoch 4: Train Loss: 0.0326, CE Loss: 0.0031, Contrastive Loss: 0.0296, Acc: 0.9575 | Test Loss: 0.0805, CE Loss: 0.0035, Contrastive Loss: 0.0772, Acc: 1.0000
+Train Epoch 5: 100%|██████████| 7/7 [00:11<00:00,  1.71s/it, loss=0.0309, ce_loss=0.00207, contrastive_loss=0.0289, acc=0.968]
+Epoch 5: Train Loss: 0.0309, CE Loss: 0.0021, Contrastive Loss: 0.0289, Acc: 0.9675 | Test Loss: 0.0681, CE Loss: 0.0011, Contrastive Loss: 0.0673, Acc: 1.0000
+Train Epoch 6: 100%|██████████| 7/7 [00:12<00:00,  1.82s/it, loss=0.028, ce_loss=0.00159, contrastive_loss=0.0265, acc=0.978]
+Train Epoch 7:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 6: Train Loss: 0.0280, CE Loss: 0.0016, Contrastive Loss: 0.0265, Acc: 0.9775 | Test Loss: 0.0753, CE Loss: 0.0012, Contrastive Loss: 0.0744, Acc: 1.0000
+Train Epoch 7: 100%|██████████| 7/7 [00:11<00:00,  1.65s/it, loss=0.0293, ce_loss=0.00249, contrastive_loss=0.027, acc=0.955]
+Epoch 7: Train Loss: 0.0293, CE Loss: 0.0025, Contrastive Loss: 0.0270, Acc: 0.9550 | Test Loss: 0.0788, CE Loss: 0.0012, Contrastive Loss: 0.0780, Acc: 1.0000
+Train Epoch 8: 100%|██████████| 7/7 [00:12<00:00,  1.74s/it, loss=0.0327, ce_loss=0.00198, contrastive_loss=0.0309, acc=0.963]
+Epoch 8: Train Loss: 0.0327, CE Loss: 0.0020, Contrastive Loss: 0.0309, Acc: 0.9625 | Test Loss: 0.0888, CE Loss: 0.0019, Contrastive Loss: 0.0873, Acc: 1.0000
+Train Epoch 9: 100%|██████████| 7/7 [00:11<00:00,  1.67s/it, loss=0.0311, ce_loss=0.00123, contrastive_loss=0.0301, acc=0.975]
+Epoch 9: Train Loss: 0.0311, CE Loss: 0.0012, Contrastive Loss: 0.0301, Acc: 0.9750 | Test Loss: 0.1588, CE Loss: 0.0297, Contrastive Loss: 0.1299, Acc: 0.7500
+Train Epoch 10: 100%|██████████| 7/7 [00:11<00:00,  1.71s/it, loss=0.0314, ce_loss=0.0016, contrastive_loss=0.03, acc=0.968]
+Epoch 10: Train Loss: 0.0314, CE Loss: 0.0016, Contrastive Loss: 0.0300, Acc: 0.9675 | Test Loss: 0.1846, CE Loss: 0.0437, Contrastive Loss: 0.1418, Acc: 0.6500
+Early stopping triggered at epoch 10
+dict_keys(['raw_data', 'features', 'arousal_label', 'valence_label', 'subject_list', 'ch_info', 'info'])
+EEG: 1-70filer, 50Hz notch, 256Hz resample;
+Subject : 1-30 subject, no 3,9,12,15,16,25 subject; 24 person, 20 trial, 32 EEG channel, 7 pps channels;
+Labels :    Arousal: 0:["Sadness", "Disgust", "Neutral"]、1:["Joy, Happiness", "Amusement"] 2:["Surprise", "Fear", "Anger", "Anxiety"]
+    Valence: 0:["Fear", "Anger", "Disgust", "Sadness", "Anxiety"] 1:["Surprise", "Neutral"] 2:["Joy, Happiness", "Amusement"]
+Eye Track data : DistanceLeft，PupilLeft，ValidityLeft，Distance Right，Pupil Right，Validity Right，Fixation Index，Gaze Point X，Gaze Point Y，Fixation Duration
+     PPS data : ECG, GSR，Resp，Temp，Status
+        Features:
+            	 DE features,
+            	 Eye features: Pupil diameter (mean value, standard deviation, and spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, and 0.6 - 1Hz); Eye's viewing distance from the screen (approach time ratio, avoidance time ratio, approach rate and average approach rate); Blinking (blink depth, blink rate, maximum blink duration, and total eye - closed time);Eye fixation coordinates on the screen (standard deviation, skewness, kurtosis of horizontal and vertical coordinates, average saccade path length, as well as the mean and standard deviation of the standard deviation for each fixation interval as time - domain features); Some frequency - domain features:(spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, 0.6 - 0.8Hz, and 1 - 2Hz); Global features (average fixation time and number of fixation areas) ,
+            	 PPS features: For the ECG signal, features such as heart rate, heart rate variability, and heart rate spectral energy were extracted. For the GSR signal, features including skin conductance, rate of change of skin conductance, and skin conductance spectral energy were extracted. The skin temperature signal encompasses features like skin temperature, rate of change of skin temperature, and skin temperature spectral energy. As for the respiratory signal, features such as respiratory rate, rate of change of respiratory rate, and respiratory rate spectral energy were extracted.
+1
+Train Epoch 1: 100%|██████████| 7/7 [00:13<00:00,  1.93s/it, loss=0.038, ce_loss=0.00244, contrastive_loss=0.0356, acc=0.975]
+Epoch 1: Train Loss: 0.0380, CE Loss: 0.0024, Contrastive Loss: 0.0356, Acc: 0.9750 | Test Loss: 0.2163, CE Loss: 0.0175, Contrastive Loss: 0.1989, Acc: 0.8000
+Train Epoch 2: 100%|██████████| 7/7 [00:12<00:00,  1.81s/it, loss=0.0359, ce_loss=0.00163, contrastive_loss=0.0343, acc=0.975]
+Epoch 2: Train Loss: 0.0359, CE Loss: 0.0016, Contrastive Loss: 0.0343, Acc: 0.9750 | Test Loss: 0.1403, CE Loss: 0.0064, Contrastive Loss: 0.1341, Acc: 0.9500
+Train Epoch 3: 100%|██████████| 7/7 [00:11<00:00,  1.67s/it, loss=0.0318, ce_loss=0.00197, contrastive_loss=0.0299, acc=0.96]
+Epoch 3: Train Loss: 0.0318, CE Loss: 0.0020, Contrastive Loss: 0.0299, Acc: 0.9600 | Test Loss: 0.1321, CE Loss: 0.0050, Contrastive Loss: 0.1273, Acc: 0.9500
+Train Epoch 4: 100%|██████████| 7/7 [00:12<00:00,  1.84s/it, loss=0.0293, ce_loss=0.00219, contrastive_loss=0.0271, acc=0.978]
+Epoch 4: Train Loss: 0.0293, CE Loss: 0.0022, Contrastive Loss: 0.0271, Acc: 0.9775 | Test Loss: 0.1326, CE Loss: 0.0032, Contrastive Loss: 0.1297, Acc: 0.9500
+Train Epoch 5: 100%|██████████| 7/7 [00:12<00:00,  1.76s/it, loss=0.0271, ce_loss=0.00102, contrastive_loss=0.0262, acc=0.975]
+Epoch 5: Train Loss: 0.0271, CE Loss: 0.0010, Contrastive Loss: 0.0262, Acc: 0.9750 | Test Loss: 0.1318, CE Loss: 0.0027, Contrastive Loss: 0.1295, Acc: 0.9500
+Train Epoch 6: 100%|██████████| 7/7 [00:11<00:00,  1.70s/it, loss=0.025, ce_loss=0.00129, contrastive_loss=0.0238, acc=0.978]
+Epoch 6: Train Loss: 0.0250, CE Loss: 0.0013, Contrastive Loss: 0.0238, Acc: 0.9775 | Test Loss: 0.1398, CE Loss: 0.0044, Contrastive Loss: 0.1359, Acc: 0.9500
+Train Epoch 7: 100%|██████████| 7/7 [00:11<00:00,  1.70s/it, loss=0.0236, ce_loss=0.00106, contrastive_loss=0.0226, acc=0.983]
+Epoch 7: Train Loss: 0.0236, CE Loss: 0.0011, Contrastive Loss: 0.0226, Acc: 0.9825 | Test Loss: 0.1251, CE Loss: 0.0101, Contrastive Loss: 0.1155, Acc: 0.9000
+Train Epoch 8: 100%|██████████| 7/7 [00:12<00:00,  1.72s/it, loss=0.0233, ce_loss=0.00199, contrastive_loss=0.0214, acc=0.965]
+Epoch 8: Train Loss: 0.0233, CE Loss: 0.0020, Contrastive Loss: 0.0214, Acc: 0.9650 | Test Loss: 0.1331, CE Loss: 0.0029, Contrastive Loss: 0.1308, Acc: 0.9500
+Train Epoch 9: 100%|██████████| 7/7 [00:11<00:00,  1.69s/it, loss=0.0246, ce_loss=0.00131, contrastive_loss=0.0234, acc=0.985]
+Train Epoch 10:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 9: Train Loss: 0.0246, CE Loss: 0.0013, Contrastive Loss: 0.0234, Acc: 0.9850 | Test Loss: 0.2624, CE Loss: 0.0493, Contrastive Loss: 0.2142, Acc: 0.7000
+Train Epoch 10: 100%|██████████| 7/7 [00:11<00:00,  1.70s/it, loss=0.0319, ce_loss=0.00209, contrastive_loss=0.03, acc=0.978]
+Epoch 10: Train Loss: 0.0319, CE Loss: 0.0021, Contrastive Loss: 0.0300, Acc: 0.9775 | Test Loss: 0.1891, CE Loss: 0.0143, Contrastive Loss: 0.1759, Acc: 0.8000
+Train Epoch 11: 100%|██████████| 7/7 [00:11<00:00,  1.71s/it, loss=0.023, ce_loss=0.000827, contrastive_loss=0.0223, acc=0.99]
+Epoch 11: Train Loss: 0.0230, CE Loss: 0.0008, Contrastive Loss: 0.0223, Acc: 0.9900 | Test Loss: 0.1790, CE Loss: 0.0038, Contrastive Loss: 0.1763, Acc: 1.0000
+Train Epoch 12: 100%|██████████| 7/7 [00:11<00:00,  1.70s/it, loss=0.0237, ce_loss=0.00175, contrastive_loss=0.0221, acc=0.978]
+Epoch 12: Train Loss: 0.0237, CE Loss: 0.0018, Contrastive Loss: 0.0221, Acc: 0.9775 | Test Loss: 0.1573, CE Loss: 0.0026, Contrastive Loss: 0.1558, Acc: 1.0000
+Early stopping triggered at epoch 12
+dict_keys(['raw_data', 'features', 'arousal_label', 'valence_label', 'subject_list', 'ch_info', 'info'])
+EEG: 1-70filer, 50Hz notch, 256Hz resample;
+Subject : 1-30 subject, no 3,9,12,15,16,25 subject; 24 person, 20 trial, 32 EEG channel, 7 pps channels;
+Labels :    Arousal: 0:["Sadness", "Disgust", "Neutral"]、1:["Joy, Happiness", "Amusement"] 2:["Surprise", "Fear", "Anger", "Anxiety"]
+    Valence: 0:["Fear", "Anger", "Disgust", "Sadness", "Anxiety"] 1:["Surprise", "Neutral"] 2:["Joy, Happiness", "Amusement"]
+Eye Track data : DistanceLeft，PupilLeft，ValidityLeft，Distance Right，Pupil Right，Validity Right，Fixation Index，Gaze Point X，Gaze Point Y，Fixation Duration
+     PPS data : ECG, GSR，Resp，Temp，Status
+        Features:
+            	 DE features,
+            	 Eye features: Pupil diameter (mean value, standard deviation, and spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, and 0.6 - 1Hz); Eye's viewing distance from the screen (approach time ratio, avoidance time ratio, approach rate and average approach rate); Blinking (blink depth, blink rate, maximum blink duration, and total eye - closed time);Eye fixation coordinates on the screen (standard deviation, skewness, kurtosis of horizontal and vertical coordinates, average saccade path length, as well as the mean and standard deviation of the standard deviation for each fixation interval as time - domain features); Some frequency - domain features:(spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, 0.6 - 0.8Hz, and 1 - 2Hz); Global features (average fixation time and number of fixation areas) ,
+            	 PPS features: For the ECG signal, features such as heart rate, heart rate variability, and heart rate spectral energy were extracted. For the GSR signal, features including skin conductance, rate of change of skin conductance, and skin conductance spectral energy were extracted. The skin temperature signal encompasses features like skin temperature, rate of change of skin temperature, and skin temperature spectral energy. As for the respiratory signal, features such as respiratory rate, rate of change of respiratory rate, and respiratory rate spectral energy were extracted.
+1
+Train Epoch 1: 100%|██████████| 7/7 [00:13<00:00,  1.96s/it, loss=0.0337, ce_loss=0.00149, contrastive_loss=0.0322, acc=0.97]
+Epoch 1: Train Loss: 0.0337, CE Loss: 0.0015, Contrastive Loss: 0.0322, Acc: 0.9700 | Test Loss: 0.1130, CE Loss: 0.0033, Contrastive Loss: 0.1098, Acc: 0.9500
+Train Epoch 2: 100%|██████████| 7/7 [00:11<00:00,  1.68s/it, loss=0.0302, ce_loss=0.00089, contrastive_loss=0.0293, acc=0.975]
+Epoch 2: Train Loss: 0.0302, CE Loss: 0.0009, Contrastive Loss: 0.0293, Acc: 0.9750 | Test Loss: 0.0910, CE Loss: 0.0011, Contrastive Loss: 0.0901, Acc: 1.0000
+Train Epoch 3: 100%|██████████| 7/7 [00:12<00:00,  1.74s/it, loss=0.0263, ce_loss=0.000932, contrastive_loss=0.0254, acc=0.98]
+Epoch 3: Train Loss: 0.0263, CE Loss: 0.0009, Contrastive Loss: 0.0254, Acc: 0.9800 | Test Loss: 0.0712, CE Loss: 0.0132, Contrastive Loss: 0.0582, Acc: 0.9500
+Train Epoch 4: 100%|██████████| 7/7 [00:11<00:00,  1.67s/it, loss=0.0269, ce_loss=0.00166, contrastive_loss=0.0253, acc=0.97]
+Epoch 4: Train Loss: 0.0269, CE Loss: 0.0017, Contrastive Loss: 0.0253, Acc: 0.9700 | Test Loss: 0.0578, CE Loss: 0.0081, Contrastive Loss: 0.0499, Acc: 0.9500
+Train Epoch 5: 100%|██████████| 7/7 [00:11<00:00,  1.66s/it, loss=0.0309, ce_loss=0.00056, contrastive_loss=0.0304, acc=0.993]
+Train Epoch 6:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 5: Train Loss: 0.0309, CE Loss: 0.0006, Contrastive Loss: 0.0304, Acc: 0.9925 | Test Loss: 0.0633, CE Loss: 0.0032, Contrastive Loss: 0.0603, Acc: 0.9500
+Train Epoch 6: 100%|██████████| 7/7 [00:12<00:00,  1.80s/it, loss=0.0279, ce_loss=0.00129, contrastive_loss=0.0267, acc=0.98]
+Train Epoch 7:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 6: Train Loss: 0.0279, CE Loss: 0.0013, Contrastive Loss: 0.0267, Acc: 0.9800 | Test Loss: 0.0655, CE Loss: 0.0007, Contrastive Loss: 0.0650, Acc: 1.0000
+Train Epoch 7: 100%|██████████| 7/7 [00:11<00:00,  1.67s/it, loss=0.0314, ce_loss=0.00118, contrastive_loss=0.0304, acc=0.978]
+Train Epoch 8:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 7: Train Loss: 0.0314, CE Loss: 0.0012, Contrastive Loss: 0.0304, Acc: 0.9775 | Test Loss: 0.0927, CE Loss: 0.0267, Contrastive Loss: 0.0664, Acc: 0.8000
+Train Epoch 8: 100%|██████████| 7/7 [00:12<00:00,  1.72s/it, loss=0.0292, ce_loss=0.00128, contrastive_loss=0.0281, acc=0.98]
+Epoch 8: Train Loss: 0.0292, CE Loss: 0.0013, Contrastive Loss: 0.0281, Acc: 0.9800 | Test Loss: 0.0556, CE Loss: 0.0027, Contrastive Loss: 0.0532, Acc: 0.9500
+Train Epoch 9: 100%|██████████| 7/7 [00:11<00:00,  1.66s/it, loss=0.0243, ce_loss=0.000644, contrastive_loss=0.0238, acc=0.99]
+Train Epoch 10:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 9: Train Loss: 0.0243, CE Loss: 0.0006, Contrastive Loss: 0.0238, Acc: 0.9900 | Test Loss: 0.0883, CE Loss: 0.0174, Contrastive Loss: 0.0713, Acc: 0.9000
+Train Epoch 10: 100%|██████████| 7/7 [00:12<00:00,  1.73s/it, loss=0.0237, ce_loss=0.000859, contrastive_loss=0.023, acc=0.99]
+Epoch 10: Train Loss: 0.0237, CE Loss: 0.0009, Contrastive Loss: 0.0230, Acc: 0.9900 | Test Loss: 0.0802, CE Loss: 0.0112, Contrastive Loss: 0.0694, Acc: 0.9500
+Train Epoch 11: 100%|██████████| 7/7 [00:11<00:00,  1.71s/it, loss=0.0254, ce_loss=0.000993, contrastive_loss=0.0245, acc=0.98]
+Epoch 11: Train Loss: 0.0254, CE Loss: 0.0010, Contrastive Loss: 0.0245, Acc: 0.9800 | Test Loss: 0.1214, CE Loss: 0.0196, Contrastive Loss: 0.1025, Acc: 0.8500
+Train Epoch 12: 100%|██████████| 7/7 [00:12<00:00,  1.72s/it, loss=0.0273, ce_loss=0.000956, contrastive_loss=0.0265, acc=0.99]
+Train Epoch 13:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 12: Train Loss: 0.0273, CE Loss: 0.0010, Contrastive Loss: 0.0265, Acc: 0.9900 | Test Loss: 0.0957, CE Loss: 0.0146, Contrastive Loss: 0.0817, Acc: 0.9500
+Train Epoch 13: 100%|██████████| 7/7 [00:12<00:00,  1.80s/it, loss=0.0215, ce_loss=0.00061, contrastive_loss=0.0211, acc=0.99]
+Epoch 13: Train Loss: 0.0215, CE Loss: 0.0006, Contrastive Loss: 0.0211, Acc: 0.9900 | Test Loss: 0.0656, CE Loss: 0.0039, Contrastive Loss: 0.0623, Acc: 0.9500
+Early stopping triggered at epoch 13
+dict_keys(['raw_data', 'features', 'arousal_label', 'valence_label', 'subject_list', 'ch_info', 'info'])
+EEG: 1-70filer, 50Hz notch, 256Hz resample;
+Subject : 1-30 subject, no 3,9,12,15,16,25 subject; 24 person, 20 trial, 32 EEG channel, 7 pps channels;
+Labels :    Arousal: 0:["Sadness", "Disgust", "Neutral"]、1:["Joy, Happiness", "Amusement"] 2:["Surprise", "Fear", "Anger", "Anxiety"]
+    Valence: 0:["Fear", "Anger", "Disgust", "Sadness", "Anxiety"] 1:["Surprise", "Neutral"] 2:["Joy, Happiness", "Amusement"]
+Eye Track data : DistanceLeft，PupilLeft，ValidityLeft，Distance Right，Pupil Right，Validity Right，Fixation Index，Gaze Point X，Gaze Point Y，Fixation Duration
+     PPS data : ECG, GSR，Resp，Temp，Status
+        Features:
+            	 DE features,
+            	 Eye features: Pupil diameter (mean value, standard deviation, and spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, and 0.6 - 1Hz); Eye's viewing distance from the screen (approach time ratio, avoidance time ratio, approach rate and average approach rate); Blinking (blink depth, blink rate, maximum blink duration, and total eye - closed time);Eye fixation coordinates on the screen (standard deviation, skewness, kurtosis of horizontal and vertical coordinates, average saccade path length, as well as the mean and standard deviation of the standard deviation for each fixation interval as time - domain features); Some frequency - domain features:(spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, 0.6 - 0.8Hz, and 1 - 2Hz); Global features (average fixation time and number of fixation areas) ,
+            	 PPS features: For the ECG signal, features such as heart rate, heart rate variability, and heart rate spectral energy were extracted. For the GSR signal, features including skin conductance, rate of change of skin conductance, and skin conductance spectral energy were extracted. The skin temperature signal encompasses features like skin temperature, rate of change of skin temperature, and skin temperature spectral energy. As for the respiratory signal, features such as respiratory rate, rate of change of respiratory rate, and respiratory rate spectral energy were extracted.
+1
+Train Epoch 1: 100%|██████████| 7/7 [00:13<00:00,  1.91s/it, loss=0.0229, ce_loss=0.000763, contrastive_loss=0.0221, acc=0.988]
+Epoch 1: Train Loss: 0.0229, CE Loss: 0.0008, Contrastive Loss: 0.0221, Acc: 0.9875 | Test Loss: 0.0604, CE Loss: 0.0007, Contrastive Loss: 0.0597, Acc: 1.0000
+Train Epoch 2: 100%|██████████| 7/7 [00:11<00:00,  1.70s/it, loss=0.0292, ce_loss=0.000551, contrastive_loss=0.0287, acc=0.988]
+Train Epoch 3:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 2: Train Loss: 0.0292, CE Loss: 0.0006, Contrastive Loss: 0.0287, Acc: 0.9875 | Test Loss: 0.0701, CE Loss: 0.0079, Contrastive Loss: 0.0623, Acc: 0.9500
+Train Epoch 3: 100%|██████████| 7/7 [00:12<00:00,  1.82s/it, loss=0.0256, ce_loss=0.00119, contrastive_loss=0.0245, acc=0.99]
+Epoch 3: Train Loss: 0.0256, CE Loss: 0.0012, Contrastive Loss: 0.0245, Acc: 0.9900 | Test Loss: 0.0960, CE Loss: 0.0232, Contrastive Loss: 0.0730, Acc: 0.8500
+Train Epoch 4: 100%|██████████| 7/7 [00:11<00:00,  1.70s/it, loss=0.0222, ce_loss=0.000586, contrastive_loss=0.0217, acc=0.993]
+Train Epoch 5:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 4: Train Loss: 0.0222, CE Loss: 0.0006, Contrastive Loss: 0.0217, Acc: 0.9925 | Test Loss: 0.0927, CE Loss: 0.0189, Contrastive Loss: 0.0740, Acc: 0.8500
+Train Epoch 5: 100%|██████████| 7/7 [00:11<00:00,  1.68s/it, loss=0.0218, ce_loss=0.000955, contrastive_loss=0.0209, acc=0.98]
+Train Epoch 6:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 5: Train Loss: 0.0218, CE Loss: 0.0010, Contrastive Loss: 0.0209, Acc: 0.9800 | Test Loss: 0.0989, CE Loss: 0.0235, Contrastive Loss: 0.0757, Acc: 0.8500
+Train Epoch 6: 100%|██████████| 7/7 [00:12<00:00,  1.84s/it, loss=0.0207, ce_loss=0.000565, contrastive_loss=0.0202, acc=0.988]
+Epoch 6: Train Loss: 0.0207, CE Loss: 0.0006, Contrastive Loss: 0.0202, Acc: 0.9875 | Test Loss: 0.1528, CE Loss: 0.0631, Contrastive Loss: 0.0900, Acc: 0.6500
+Early stopping triggered at epoch 6
+dict_keys(['raw_data', 'features', 'arousal_label', 'valence_label', 'subject_list', 'ch_info', 'info'])
+EEG: 1-70filer, 50Hz notch, 256Hz resample;
+Subject : 1-30 subject, no 3,9,12,15,16,25 subject; 24 person, 20 trial, 32 EEG channel, 7 pps channels;
+Labels :    Arousal: 0:["Sadness", "Disgust", "Neutral"]、1:["Joy, Happiness", "Amusement"] 2:["Surprise", "Fear", "Anger", "Anxiety"]
+    Valence: 0:["Fear", "Anger", "Disgust", "Sadness", "Anxiety"] 1:["Surprise", "Neutral"] 2:["Joy, Happiness", "Amusement"]
+Eye Track data : DistanceLeft，PupilLeft，ValidityLeft，Distance Right，Pupil Right，Validity Right，Fixation Index，Gaze Point X，Gaze Point Y，Fixation Duration
+     PPS data : ECG, GSR，Resp，Temp，Status
+        Features:
+            	 DE features,
+            	 Eye features: Pupil diameter (mean value, standard deviation, and spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, and 0.6 - 1Hz); Eye's viewing distance from the screen (approach time ratio, avoidance time ratio, approach rate and average approach rate); Blinking (blink depth, blink rate, maximum blink duration, and total eye - closed time);Eye fixation coordinates on the screen (standard deviation, skewness, kurtosis of horizontal and vertical coordinates, average saccade path length, as well as the mean and standard deviation of the standard deviation for each fixation interval as time - domain features); Some frequency - domain features:(spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, 0.6 - 0.8Hz, and 1 - 2Hz); Global features (average fixation time and number of fixation areas) ,
+            	 PPS features: For the ECG signal, features such as heart rate, heart rate variability, and heart rate spectral energy were extracted. For the GSR signal, features including skin conductance, rate of change of skin conductance, and skin conductance spectral energy were extracted. The skin temperature signal encompasses features like skin temperature, rate of change of skin temperature, and skin temperature spectral energy. As for the respiratory signal, features such as respiratory rate, rate of change of respiratory rate, and respiratory rate spectral energy were extracted.
+1
+Train Epoch 1: 100%|██████████| 7/7 [00:13<00:00,  1.92s/it, loss=0.0244, ce_loss=0.000672, contrastive_loss=0.0237, acc=0.99]
+Epoch 1: Train Loss: 0.0244, CE Loss: 0.0007, Contrastive Loss: 0.0237, Acc: 0.9900 | Test Loss: 0.1522, CE Loss: 0.0122, Contrastive Loss: 0.1402, Acc: 0.9500
+Train Epoch 2: 100%|██████████| 7/7 [00:12<00:00,  1.73s/it, loss=0.0288, ce_loss=0.000253, contrastive_loss=0.0285, acc=1]
+Epoch 2: Train Loss: 0.0288, CE Loss: 0.0003, Contrastive Loss: 0.0285, Acc: 1.0000 | Test Loss: 0.0683, CE Loss: 0.0008, Contrastive Loss: 0.0676, Acc: 1.0000
+Train Epoch 3: 100%|██████████| 7/7 [00:12<00:00,  1.77s/it, loss=0.0225, ce_loss=0.000337, contrastive_loss=0.0222, acc=1]
+Train Epoch 4:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 3: Train Loss: 0.0225, CE Loss: 0.0003, Contrastive Loss: 0.0222, Acc: 1.0000 | Test Loss: 0.0706, CE Loss: 0.0027, Contrastive Loss: 0.0680, Acc: 1.0000
+Train Epoch 4: 100%|██████████| 7/7 [00:13<00:00,  1.97s/it, loss=0.02, ce_loss=0.000565, contrastive_loss=0.0195, acc=0.99]
+Train Epoch 5:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 4: Train Loss: 0.0200, CE Loss: 0.0006, Contrastive Loss: 0.0195, Acc: 0.9900 | Test Loss: 0.0685, CE Loss: 0.0001, Contrastive Loss: 0.0685, Acc: 1.0000
+Train Epoch 5: 100%|██████████| 7/7 [00:12<00:00,  1.81s/it, loss=0.0164, ce_loss=0.000398, contrastive_loss=0.0161, acc=0.995]
+Train Epoch 6:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 5: Train Loss: 0.0164, CE Loss: 0.0004, Contrastive Loss: 0.0161, Acc: 0.9950 | Test Loss: 0.0835, CE Loss: 0.0026, Contrastive Loss: 0.0812, Acc: 0.9500
+Train Epoch 6: 100%|██████████| 7/7 [00:12<00:00,  1.80s/it, loss=0.0233, ce_loss=0.000677, contrastive_loss=0.0227, acc=0.993]
+Epoch 6: Train Loss: 0.0233, CE Loss: 0.0007, Contrastive Loss: 0.0227, Acc: 0.9925 | Test Loss: 0.1116, CE Loss: 0.0123, Contrastive Loss: 0.0997, Acc: 0.8500
+Train Epoch 7: 100%|██████████| 7/7 [00:13<00:00,  1.86s/it, loss=0.017, ce_loss=0.000192, contrastive_loss=0.0168, acc=0.995]
+Epoch 7: Train Loss: 0.0170, CE Loss: 0.0002, Contrastive Loss: 0.0168, Acc: 0.9950 | Test Loss: 0.0951, CE Loss: 0.0018, Contrastive Loss: 0.0937, Acc: 1.0000
+Early stopping triggered at epoch 7
+dict_keys(['raw_data', 'features', 'arousal_label', 'valence_label', 'subject_list', 'ch_info', 'info'])
+EEG: 1-70filer, 50Hz notch, 256Hz resample;
+Subject : 1-30 subject, no 3,9,12,15,16,25 subject; 24 person, 20 trial, 32 EEG channel, 7 pps channels;
+Labels :    Arousal: 0:["Sadness", "Disgust", "Neutral"]、1:["Joy, Happiness", "Amusement"] 2:["Surprise", "Fear", "Anger", "Anxiety"]
+    Valence: 0:["Fear", "Anger", "Disgust", "Sadness", "Anxiety"] 1:["Surprise", "Neutral"] 2:["Joy, Happiness", "Amusement"]
+Eye Track data : DistanceLeft，PupilLeft，ValidityLeft，Distance Right，Pupil Right，Validity Right，Fixation Index，Gaze Point X，Gaze Point Y，Fixation Duration
+     PPS data : ECG, GSR，Resp，Temp，Status
+        Features:
+            	 DE features,
+            	 Eye features: Pupil diameter (mean value, standard deviation, and spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, and 0.6 - 1Hz); Eye's viewing distance from the screen (approach time ratio, avoidance time ratio, approach rate and average approach rate); Blinking (blink depth, blink rate, maximum blink duration, and total eye - closed time);Eye fixation coordinates on the screen (standard deviation, skewness, kurtosis of horizontal and vertical coordinates, average saccade path length, as well as the mean and standard deviation of the standard deviation for each fixation interval as time - domain features); Some frequency - domain features:(spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, 0.6 - 0.8Hz, and 1 - 2Hz); Global features (average fixation time and number of fixation areas) ,
+            	 PPS features: For the ECG signal, features such as heart rate, heart rate variability, and heart rate spectral energy were extracted. For the GSR signal, features including skin conductance, rate of change of skin conductance, and skin conductance spectral energy were extracted. The skin temperature signal encompasses features like skin temperature, rate of change of skin temperature, and skin temperature spectral energy. As for the respiratory signal, features such as respiratory rate, rate of change of respiratory rate, and respiratory rate spectral energy were extracted.
+1
+Train Epoch 1: 100%|██████████| 7/7 [00:14<00:00,  2.04s/it, loss=0.0201, ce_loss=0.000271, contrastive_loss=0.0199, acc=0.998]
+Epoch 1: Train Loss: 0.0201, CE Loss: 0.0003, Contrastive Loss: 0.0199, Acc: 0.9975 | Test Loss: 0.0874, CE Loss: 0.0068, Contrastive Loss: 0.0806, Acc: 0.9500
+Train Epoch 2: 100%|██████████| 7/7 [00:12<00:00,  1.82s/it, loss=0.0232, ce_loss=0.0011, contrastive_loss=0.0222, acc=0.98]
+Epoch 2: Train Loss: 0.0232, CE Loss: 0.0011, Contrastive Loss: 0.0222, Acc: 0.9800 | Test Loss: 0.0603, CE Loss: 0.0001, Contrastive Loss: 0.0603, Acc: 1.0000
+Train Epoch 3: 100%|██████████| 7/7 [00:13<00:00,  1.86s/it, loss=0.0185, ce_loss=0.00068, contrastive_loss=0.0179, acc=0.985]
+Epoch 3: Train Loss: 0.0185, CE Loss: 0.0007, Contrastive Loss: 0.0179, Acc: 0.9850 | Test Loss: 0.0956, CE Loss: 0.0080, Contrastive Loss: 0.0879, Acc: 0.9500
+Train Epoch 4: 100%|██████████| 7/7 [00:13<00:00,  1.87s/it, loss=0.0213, ce_loss=0.00042, contrastive_loss=0.0209, acc=0.993]
+Epoch 4: Train Loss: 0.0213, CE Loss: 0.0004, Contrastive Loss: 0.0209, Acc: 0.9925 | Test Loss: 0.0968, CE Loss: 0.0191, Contrastive Loss: 0.0779, Acc: 0.9500
+Train Epoch 5: 100%|██████████| 7/7 [00:12<00:00,  1.78s/it, loss=0.0249, ce_loss=0.000904, contrastive_loss=0.0241, acc=0.988]
+Epoch 5: Train Loss: 0.0249, CE Loss: 0.0009, Contrastive Loss: 0.0241, Acc: 0.9875 | Test Loss: 0.0519, CE Loss: 0.0019, Contrastive Loss: 0.0502, Acc: 1.0000
+Train Epoch 6: 100%|██████████| 7/7 [00:13<00:00,  1.93s/it, loss=0.0245, ce_loss=0.000579, contrastive_loss=0.024, acc=0.988]
+Train Epoch 7:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 6: Train Loss: 0.0245, CE Loss: 0.0006, Contrastive Loss: 0.0240, Acc: 0.9875 | Test Loss: 0.1033, CE Loss: 0.0209, Contrastive Loss: 0.0828, Acc: 0.9000
+Train Epoch 7: 100%|██████████| 7/7 [00:13<00:00,  1.93s/it, loss=0.0195, ce_loss=0.001, contrastive_loss=0.0186, acc=0.983]
+Train Epoch 8:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 7: Train Loss: 0.0195, CE Loss: 0.0010, Contrastive Loss: 0.0186, Acc: 0.9825 | Test Loss: 0.0712, CE Loss: 0.0006, Contrastive Loss: 0.0710, Acc: 1.0000
+Train Epoch 8: 100%|██████████| 7/7 [00:13<00:00,  1.99s/it, loss=0.0176, ce_loss=0.000913, contrastive_loss=0.0168, acc=0.985]
+Epoch 8: Train Loss: 0.0176, CE Loss: 0.0009, Contrastive Loss: 0.0168, Acc: 0.9850 | Test Loss: 0.0758, CE Loss: 0.0038, Contrastive Loss: 0.0724, Acc: 0.9500
+Train Epoch 9: 100%|██████████| 7/7 [00:13<00:00,  1.89s/it, loss=0.0176, ce_loss=0.000554, contrastive_loss=0.0171, acc=0.993]
+Epoch 9: Train Loss: 0.0176, CE Loss: 0.0006, Contrastive Loss: 0.0171, Acc: 0.9925 | Test Loss: 0.1203, CE Loss: 0.0222, Contrastive Loss: 0.0987, Acc: 0.9000
+Train Epoch 10: 100%|██████████| 7/7 [00:12<00:00,  1.79s/it, loss=0.0184, ce_loss=0.00112, contrastive_loss=0.0174, acc=0.995]
+Epoch 10: Train Loss: 0.0184, CE Loss: 0.0011, Contrastive Loss: 0.0174, Acc: 0.9950 | Test Loss: 0.2054, CE Loss: 0.0585, Contrastive Loss: 0.1478, Acc: 0.7000
+Early stopping triggered at epoch 10
+dict_keys(['raw_data', 'features', 'arousal_label', 'valence_label', 'subject_list', 'ch_info', 'info'])
+EEG: 1-70filer, 50Hz notch, 256Hz resample;
+Subject : 1-30 subject, no 3,9,12,15,16,25 subject; 24 person, 20 trial, 32 EEG channel, 7 pps channels;
+Labels :    Arousal: 0:["Sadness", "Disgust", "Neutral"]、1:["Joy, Happiness", "Amusement"] 2:["Surprise", "Fear", "Anger", "Anxiety"]
+    Valence: 0:["Fear", "Anger", "Disgust", "Sadness", "Anxiety"] 1:["Surprise", "Neutral"] 2:["Joy, Happiness", "Amusement"]
+Eye Track data : DistanceLeft，PupilLeft，ValidityLeft，Distance Right，Pupil Right，Validity Right，Fixation Index，Gaze Point X，Gaze Point Y，Fixation Duration
+     PPS data : ECG, GSR，Resp，Temp，Status
+        Features:
+            	 DE features,
+            	 Eye features: Pupil diameter (mean value, standard deviation, and spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, and 0.6 - 1Hz); Eye's viewing distance from the screen (approach time ratio, avoidance time ratio, approach rate and average approach rate); Blinking (blink depth, blink rate, maximum blink duration, and total eye - closed time);Eye fixation coordinates on the screen (standard deviation, skewness, kurtosis of horizontal and vertical coordinates, average saccade path length, as well as the mean and standard deviation of the standard deviation for each fixation interval as time - domain features); Some frequency - domain features:(spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, 0.6 - 0.8Hz, and 1 - 2Hz); Global features (average fixation time and number of fixation areas) ,
+            	 PPS features: For the ECG signal, features such as heart rate, heart rate variability, and heart rate spectral energy were extracted. For the GSR signal, features including skin conductance, rate of change of skin conductance, and skin conductance spectral energy were extracted. The skin temperature signal encompasses features like skin temperature, rate of change of skin temperature, and skin temperature spectral energy. As for the respiratory signal, features such as respiratory rate, rate of change of respiratory rate, and respiratory rate spectral energy were extracted.
+1
+Train Epoch 1: 100%|██████████| 7/7 [00:14<00:00,  2.06s/it, loss=0.0302, ce_loss=0.00145, contrastive_loss=0.0288, acc=0.978]
+Epoch 1: Train Loss: 0.0302, CE Loss: 0.0015, Contrastive Loss: 0.0288, Acc: 0.9775 | Test Loss: 0.5382, CE Loss: 0.1969, Contrastive Loss: 0.3415, Acc: 0.4000
+Train Epoch 2: 100%|██████████| 7/7 [00:13<00:00,  1.88s/it, loss=0.0193, ce_loss=0.000416, contrastive_loss=0.0189, acc=0.993]
+Epoch 2: Train Loss: 0.0193, CE Loss: 0.0004, Contrastive Loss: 0.0189, Acc: 0.9925 | Test Loss: 0.1562, CE Loss: 0.0177, Contrastive Loss: 0.1387, Acc: 0.9000
+Train Epoch 3: 100%|██████████| 7/7 [00:13<00:00,  1.92s/it, loss=0.0189, ce_loss=0.000608, contrastive_loss=0.0184, acc=0.99]
+Epoch 3: Train Loss: 0.0189, CE Loss: 0.0006, Contrastive Loss: 0.0184, Acc: 0.9900 | Test Loss: 0.1228, CE Loss: 0.0138, Contrastive Loss: 0.1092, Acc: 0.9500
+Train Epoch 4: 100%|██████████| 7/7 [00:13<00:00,  1.90s/it, loss=0.0203, ce_loss=0.000491, contrastive_loss=0.0199, acc=0.988]
+Epoch 4: Train Loss: 0.0203, CE Loss: 0.0005, Contrastive Loss: 0.0199, Acc: 0.9875 | Test Loss: 0.1489, CE Loss: 0.0217, Contrastive Loss: 0.1276, Acc: 0.9000
+Train Epoch 5: 100%|██████████| 7/7 [00:14<00:00,  2.03s/it, loss=0.0208, ce_loss=0.000323, contrastive_loss=0.0205, acc=0.998]
+Train Epoch 6:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 5: Train Loss: 0.0208, CE Loss: 0.0003, Contrastive Loss: 0.0205, Acc: 0.9975 | Test Loss: 0.2515, CE Loss: 0.0529, Contrastive Loss: 0.1992, Acc: 0.7500
+Train Epoch 6: 100%|██████████| 7/7 [00:25<00:00,  3.66s/it, loss=0.016, ce_loss=0.000227, contrastive_loss=0.0159, acc=0.998]
+Epoch 6: Train Loss: 0.0160, CE Loss: 0.0002, Contrastive Loss: 0.0159, Acc: 0.9975 | Test Loss: 0.3741, CE Loss: 0.1121, Contrastive Loss: 0.2629, Acc: 0.6500
+Train Epoch 7: 100%|██████████| 7/7 [00:35<00:00,  5.08s/it, loss=0.0205, ce_loss=0.000245, contrastive_loss=0.0204, acc=0.998]
+Epoch 7: Train Loss: 0.0205, CE Loss: 0.0002, Contrastive Loss: 0.0204, Acc: 0.9975 | Test Loss: 0.1034, CE Loss: 0.0016, Contrastive Loss: 0.1023, Acc: 1.0000
+Train Epoch 8: 100%|██████████| 7/7 [00:34<00:00,  4.98s/it, loss=0.0152, ce_loss=0.000301, contrastive_loss=0.015, acc=0.993]
+Train Epoch 9:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 8: Train Loss: 0.0152, CE Loss: 0.0003, Contrastive Loss: 0.0150, Acc: 0.9925 | Test Loss: 0.1429, CE Loss: 0.0076, Contrastive Loss: 0.1360, Acc: 0.9500
+Train Epoch 9: 100%|██████████| 7/7 [00:50<00:00,  7.27s/it, loss=0.0217, ce_loss=0.00197, contrastive_loss=0.0198, acc=0.99]
+Epoch 9: Train Loss: 0.0217, CE Loss: 0.0020, Contrastive Loss: 0.0198, Acc: 0.9900 | Test Loss: 0.2783, CE Loss: 0.0423, Contrastive Loss: 0.2372, Acc: 0.8000
+Train Epoch 10: 100%|██████████| 7/7 [00:40<00:00,  5.79s/it, loss=0.0247, ce_loss=0.000976, contrastive_loss=0.0239, acc=0.985]
+Epoch 10: Train Loss: 0.0247, CE Loss: 0.0010, Contrastive Loss: 0.0239, Acc: 0.9850 | Test Loss: 0.3961, CE Loss: 0.0979, Contrastive Loss: 0.2999, Acc: 0.7000
+Train Epoch 11: 100%|██████████| 7/7 [00:44<00:00,  6.32s/it, loss=0.0191, ce_loss=0.000995, contrastive_loss=0.0182, acc=0.98]
+Train Epoch 12:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 11: Train Loss: 0.0191, CE Loss: 0.0010, Contrastive Loss: 0.0182, Acc: 0.9800 | Test Loss: 0.5973, CE Loss: 0.1849, Contrastive Loss: 0.4151, Acc: 0.4000
+Train Epoch 12: 100%|██████████| 7/7 [00:47<00:00,  6.77s/it, loss=0.0179, ce_loss=0.000442, contrastive_loss=0.0176, acc=0.993]
+Epoch 12: Train Loss: 0.0179, CE Loss: 0.0004, Contrastive Loss: 0.0176, Acc: 0.9925 | Test Loss: 0.5107, CE Loss: 0.1409, Contrastive Loss: 0.3724, Acc: 0.6000
+Early stopping triggered at epoch 12
+dict_keys(['raw_data', 'features', 'arousal_label', 'valence_label', 'subject_list', 'ch_info', 'info'])
+EEG: 1-70filer, 50Hz notch, 256Hz resample;
+Subject : 1-30 subject, no 3,9,12,15,16,25 subject; 24 person, 20 trial, 32 EEG channel, 7 pps channels;
+Labels :    Arousal: 0:["Sadness", "Disgust", "Neutral"]、1:["Joy, Happiness", "Amusement"] 2:["Surprise", "Fear", "Anger", "Anxiety"]
+    Valence: 0:["Fear", "Anger", "Disgust", "Sadness", "Anxiety"] 1:["Surprise", "Neutral"] 2:["Joy, Happiness", "Amusement"]
+Eye Track data : DistanceLeft，PupilLeft，ValidityLeft，Distance Right，Pupil Right，Validity Right，Fixation Index，Gaze Point X，Gaze Point Y，Fixation Duration
+     PPS data : ECG, GSR，Resp，Temp，Status
+        Features:
+            	 DE features,
+            	 Eye features: Pupil diameter (mean value, standard deviation, and spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, and 0.6 - 1Hz); Eye's viewing distance from the screen (approach time ratio, avoidance time ratio, approach rate and average approach rate); Blinking (blink depth, blink rate, maximum blink duration, and total eye - closed time);Eye fixation coordinates on the screen (standard deviation, skewness, kurtosis of horizontal and vertical coordinates, average saccade path length, as well as the mean and standard deviation of the standard deviation for each fixation interval as time - domain features); Some frequency - domain features:(spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, 0.6 - 0.8Hz, and 1 - 2Hz); Global features (average fixation time and number of fixation areas) ,
+            	 PPS features: For the ECG signal, features such as heart rate, heart rate variability, and heart rate spectral energy were extracted. For the GSR signal, features including skin conductance, rate of change of skin conductance, and skin conductance spectral energy were extracted. The skin temperature signal encompasses features like skin temperature, rate of change of skin temperature, and skin temperature spectral energy. As for the respiratory signal, features such as respiratory rate, rate of change of respiratory rate, and respiratory rate spectral energy were extracted.
+1
+Train Epoch 1: 100%|██████████| 7/7 [00:50<00:00,  7.28s/it, loss=0.021, ce_loss=0.0013, contrastive_loss=0.0197, acc=0.985]
+Epoch 1: Train Loss: 0.0210, CE Loss: 0.0013, Contrastive Loss: 0.0197, Acc: 0.9850 | Test Loss: 0.2010, CE Loss: 0.0081, Contrastive Loss: 0.1930, Acc: 0.9500
+Train Epoch 2: 100%|██████████| 7/7 [00:46<00:00,  6.68s/it, loss=0.0236, ce_loss=0.00109, contrastive_loss=0.0226, acc=0.983]
+Train Epoch 3:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 2: Train Loss: 0.0236, CE Loss: 0.0011, Contrastive Loss: 0.0226, Acc: 0.9825 | Test Loss: 0.2329, CE Loss: 0.0330, Contrastive Loss: 0.2002, Acc: 0.8500
+Train Epoch 3: 100%|██████████| 7/7 [00:21<00:00,  3.06s/it, loss=0.015, ce_loss=0.000214, contrastive_loss=0.0148, acc=0.993]
+Epoch 3: Train Loss: 0.0150, CE Loss: 0.0002, Contrastive Loss: 0.0148, Acc: 0.9925 | Test Loss: 0.3826, CE Loss: 0.1214, Contrastive Loss: 0.2617, Acc: 0.5000
+Train Epoch 4: 100%|██████████| 7/7 [00:15<00:00,  2.18s/it, loss=0.0215, ce_loss=0.000589, contrastive_loss=0.021, acc=0.988]
+Epoch 4: Train Loss: 0.0215, CE Loss: 0.0006, Contrastive Loss: 0.0210, Acc: 0.9875 | Test Loss: 0.4434, CE Loss: 0.1499, Contrastive Loss: 0.2943, Acc: 0.4500
+Train Epoch 5: 100%|██████████| 7/7 [00:19<00:00,  2.77s/it, loss=0.0175, ce_loss=0.000196, contrastive_loss=0.0174, acc=0.998]
+Train Epoch 6:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 5: Train Loss: 0.0175, CE Loss: 0.0002, Contrastive Loss: 0.0174, Acc: 0.9975 | Test Loss: 0.2134, CE Loss: 0.0079, Contrastive Loss: 0.2062, Acc: 0.9500
+Train Epoch 6: 100%|██████████| 7/7 [00:37<00:00,  5.36s/it, loss=0.0145, ce_loss=0.000182, contrastive_loss=0.0144, acc=0.995]
+Epoch 6: Train Loss: 0.0145, CE Loss: 0.0002, Contrastive Loss: 0.0144, Acc: 0.9950 | Test Loss: 0.2052, CE Loss: 0.0046, Contrastive Loss: 0.2014, Acc: 0.9500
+Early stopping triggered at epoch 6
+dict_keys(['raw_data', 'features', 'arousal_label', 'valence_label', 'subject_list', 'ch_info', 'info'])
+EEG: 1-70filer, 50Hz notch, 256Hz resample;
+Subject : 1-30 subject, no 3,9,12,15,16,25 subject; 24 person, 20 trial, 32 EEG channel, 7 pps channels;
+Labels :    Arousal: 0:["Sadness", "Disgust", "Neutral"]、1:["Joy, Happiness", "Amusement"] 2:["Surprise", "Fear", "Anger", "Anxiety"]
+    Valence: 0:["Fear", "Anger", "Disgust", "Sadness", "Anxiety"] 1:["Surprise", "Neutral"] 2:["Joy, Happiness", "Amusement"]
+Eye Track data : DistanceLeft，PupilLeft，ValidityLeft，Distance Right，Pupil Right，Validity Right，Fixation Index，Gaze Point X，Gaze Point Y，Fixation Duration
+     PPS data : ECG, GSR，Resp，Temp，Status
+        Features:
+            	 DE features,
+            	 Eye features: Pupil diameter (mean value, standard deviation, and spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, and 0.6 - 1Hz); Eye's viewing distance from the screen (approach time ratio, avoidance time ratio, approach rate and average approach rate); Blinking (blink depth, blink rate, maximum blink duration, and total eye - closed time);Eye fixation coordinates on the screen (standard deviation, skewness, kurtosis of horizontal and vertical coordinates, average saccade path length, as well as the mean and standard deviation of the standard deviation for each fixation interval as time - domain features); Some frequency - domain features:(spectral energy in frequency bands of 0 - 0.2Hz, 0.2 - 0.4Hz, 0.4 - 0.6Hz, 0.6 - 0.8Hz, and 1 - 2Hz); Global features (average fixation time and number of fixation areas) ,
+            	 PPS features: For the ECG signal, features such as heart rate, heart rate variability, and heart rate spectral energy were extracted. For the GSR signal, features including skin conductance, rate of change of skin conductance, and skin conductance spectral energy were extracted. The skin temperature signal encompasses features like skin temperature, rate of change of skin temperature, and skin temperature spectral energy. As for the respiratory signal, features such as respiratory rate, rate of change of respiratory rate, and respiratory rate spectral energy were extracted.
+1
+Train Epoch 1: 100%|██████████| 7/7 [00:40<00:00,  5.77s/it, loss=0.0244, ce_loss=0.000359, contrastive_loss=0.0241, acc=0.993]
+Epoch 1: Train Loss: 0.0244, CE Loss: 0.0004, Contrastive Loss: 0.0241, Acc: 0.9925 | Test Loss: 0.0424, CE Loss: 0.0000, Contrastive Loss: 0.0424, Acc: 1.0000
+Train Epoch 2: 100%|██████████| 7/7 [00:45<00:00,  6.54s/it, loss=0.0182, ce_loss=0.000645, contrastive_loss=0.0176, acc=0.99]
+Epoch 2: Train Loss: 0.0182, CE Loss: 0.0006, Contrastive Loss: 0.0176, Acc: 0.9900 | Test Loss: 0.0422, CE Loss: 0.0021, Contrastive Loss: 0.0401, Acc: 1.0000
+Train Epoch 3: 100%|██████████| 7/7 [00:42<00:00,  6.02s/it, loss=0.0214, ce_loss=0.000503, contrastive_loss=0.0209, acc=0.99]
+Epoch 3: Train Loss: 0.0214, CE Loss: 0.0005, Contrastive Loss: 0.0209, Acc: 0.9900 | Test Loss: 0.1567, CE Loss: 0.0339, Contrastive Loss: 0.1231, Acc: 0.8500
+Train Epoch 4: 100%|██████████| 7/7 [00:42<00:00,  6.03s/it, loss=0.022, ce_loss=0.000703, contrastive_loss=0.0213, acc=0.99]
+Epoch 4: Train Loss: 0.0220, CE Loss: 0.0007, Contrastive Loss: 0.0213, Acc: 0.9900 | Test Loss: 0.2578, CE Loss: 0.0946, Contrastive Loss: 0.1636, Acc: 0.6500
+Train Epoch 5: 100%|██████████| 7/7 [00:22<00:00,  3.18s/it, loss=0.0153, ce_loss=0.000417, contrastive_loss=0.0149, acc=0.993]
+Epoch 5: Train Loss: 0.0153, CE Loss: 0.0004, Contrastive Loss: 0.0149, Acc: 0.9925 | Test Loss: 0.1666, CE Loss: 0.0478, Contrastive Loss: 0.1192, Acc: 0.6500
+Train Epoch 6: 100%|██████████| 7/7 [00:15<00:00,  2.27s/it, loss=0.0182, ce_loss=0.00145, contrastive_loss=0.0168, acc=0.983]
+Train Epoch 7:   0%|          | 0/7 [00:00<?, ?it/s]Epoch 6: Train Loss: 0.0182, CE Loss: 0.0014, Contrastive Loss: 0.0168, Acc: 0.9825 | Test Loss: 0.0707, CE Loss: 0.0002, Contrastive Loss: 0.0708, Acc: 1.0000
+Train Epoch 7: 100%|██████████| 7/7 [00:14<00:00,  2.06s/it, loss=0.0188, ce_loss=0.000597, contrastive_loss=0.0183, acc=0.99]
+Epoch 7: Train Loss: 0.0188, CE Loss: 0.0006, Contrastive Loss: 0.0183, Acc: 0.9900 | Test Loss: 0.0492, CE Loss: 0.0001, Contrastive Loss: 0.0493, Acc: 1.0000
+Early stopping triggered at epoch 7

@@ -1,0 +1,83 @@
+graph TD
+    %% 修改为 Top-Down 方向
+
+    subgraph Input Data
+        EEG["EEG (Batch, 32, 585)"]
+        Eye["Eye Features (Batch, 38)"]
+        PPS["PPS Features (Batch, 230)"]
+    end
+
+    subgraph Feature Extraction
+        EEG_Net["EEGTransformer (CNN + Transformer)"]
+        Eye_Net["TransformerSubnetwork (Linear + Transformer)"]
+        PPS_Net["TransformerSubnetwork (Linear + Transformer)"]
+    end
+
+    subgraph Extracted Features
+        EEG_Feat["EEG Feature (Batch, 128)"]
+        Eye_Feat["Eye Feature (Batch, 128)"]
+        PPS_Feat["PPS Feature (Batch, 128)"]
+    end
+
+    subgraph Cross-Modal Interaction
+        CrossAttn_E2P["CrossModalTransformer (Eye ← EEG)"]
+        CrossAttn_P2E["CrossModalTransformer (PPS ← EEG)"]
+    end
+
+     subgraph Enhanced Features
+        Eye_Enhanced["Enhanced Eye Feature (Batch, 128)"]
+        PPS_Enhanced["Enhanced PPS Feature (Batch, 128)"]
+    end
+
+    subgraph Feature Fusion
+        Concat_Raw["Concatenate Raw Features"]
+        AttnWeights["Attention Weights Calculation"]
+        WeightedSum["Dynamic Weighted Fusion"]
+        FusionNet["Fusion Network (MLP)"]
+
+    end
+    subgraph classification
+        Fused_Feat["Fused Feature (Batch, 128)"]
+        OutputHead["Arousal Head (MLP)"]
+        Output["Arousal Prediction (Batch, 3)"]
+    end
+
+    %% Connections
+    EEG --> EEG_Net
+    Eye --> Eye_Net
+    PPS --> PPS_Net
+
+    EEG_Net --> EEG_Feat
+    Eye_Net --> Eye_Feat
+    PPS_Net --> PPS_Feat
+
+    Eye_Feat -- Query --> CrossAttn_E2P
+    EEG_Feat -- "Key/Value" --> CrossAttn_E2P
+    CrossAttn_E2P --> Eye_Enhanced
+
+    PPS_Feat -- Query --> CrossAttn_P2E
+    EEG_Feat -- "Key/Value" --> CrossAttn_P2E
+    CrossAttn_P2E --> PPS_Enhanced
+
+    EEG_Feat --> Concat_Raw
+    Eye_Feat --> Concat_Raw
+    PPS_Feat --> Concat_Raw
+    Concat_Raw --> AttnWeights
+
+
+    Eye_Enhanced -- "Weight 2" --> WeightedSum
+    PPS_Enhanced -- "Weight 3" --> WeightedSum
+    AttnWeights -- "Weights 1" --> WeightedSum
+
+    WeightedSum --> FusionNet
+    FusionNet --> Fused_Feat
+    Fused_Feat --> OutputHead
+    OutputHead --> Output
+
+    %% Styling (optional, kept from previous version)
+    style EEG_Feat fill:#f9f,stroke:#333,stroke-width:2px
+    style Eye_Feat fill:#f9f,stroke:#333,stroke-width:2px
+    style PPS_Feat fill:#f9f,stroke:#333,stroke-width:2px
+    style Eye_Enhanced fill:#ccf,stroke:#333,stroke-width:2px
+    style PPS_Enhanced fill:#ccf,stroke:#333,stroke-width:2px
+    style Fused_Feat fill:#ff9,stroke:#333,stroke-width:2px
