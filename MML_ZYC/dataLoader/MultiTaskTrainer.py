@@ -53,9 +53,7 @@ class MultiTaskTrainer:
 
         pbar = tqdm(self.train_loader, desc=f'Train Epoch {epoch}')
         for eeg, eye, pps, arousal, valence in pbar:
-            eeg = (eeg-eeg.min())/(eeg.max()-eeg.min())
-            eye = (eye-eye.min())/(eye.max()-eye.min())
-            pps = (pps-pps.min())/(pps.max()-pps.min())
+
             inputs = (
                 eeg.to(self.device).float(),
                 eye.to(self.device).float(),
@@ -210,9 +208,9 @@ class MultiTaskTrainer:
             print(
                 f"Test  Loss: {test_metrics['loss']:.4f} | A Acc: {test_metrics['a_acc']:.2%} | V Acc: {test_metrics['v_acc']:.2%}")
 
-            # 早停检查
-            if self.early_stopping(test_metrics['loss']):
-                break
+            # # 早停检查
+            # if self.early_stopping(test_metrics['loss']):
+            #     break
 
         # 最终可视化
         self.visualize_progress()

@@ -3,7 +3,7 @@ from MultimodalModel import MultimodalTransformerModel
 from Tester import Tester
 import torch
 import joblib
-from data.Dataset import FeatureDataset, load_data
+from data.Dataset import load_data, FeatureDataset
 from dataLoader.MultiTaskTrainer import MultiTaskTrainer
 from dataLoader.MultimodalDataLoader import MultimodalDataLoader
 
@@ -62,6 +62,12 @@ if __name__ == "__main__":
 
     # 初始化模型
     model = MultimodalTransformerModel()
+
+    # train_loader, test_loader = load_data(config, test_person=1)
+    # print(train_loader.__len__())
+    # print(test_loader.__len__())
+
+
     # 2. 训练模型
     run(config, model)
 

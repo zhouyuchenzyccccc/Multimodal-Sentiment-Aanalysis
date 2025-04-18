@@ -47,7 +47,7 @@ class DataFeatures(object):
         """
         self.data_path = data_path
         self.subject_lists = subject_lists
-        self.ex_nums = None
+        self.ex_nums = 20
         rawData = RawData(
             data_path
         )
@@ -102,7 +102,7 @@ class DataFeatures(object):
                 self.ex_nums = int(
                     self.features[modality].shape[1] // len(self.subject_lists)
                 )
-                print(self.ex_nums)
+
 
             if Norm == "Z_score":
                 # 计算均值和标准差
@@ -247,7 +247,7 @@ if __name__ == "__main__":
     # for modality in modalities:
     #     print(modality, ruiwenData.features[modality].shape)
 
-    data_path = r"F:\毕业设计\MML_ZYC\HCI_DATA\hci_data.pkl"
+    data_path = r"F:\毕业设计\Multimodal-Sentiment-Aanalysis\MML_ZYC\HCI_DATA\hci_data.pkl"
     subject_list = [
         1,
         2,
@@ -286,4 +286,9 @@ if __name__ == "__main__":
     print(mahnobData.features)
     for modality in modalities:
         print(modality, mahnobData.features[modality].shape)
+        # 在reshape之前检查NaN和Inf
+        if np.isnan(mahnobData.features[modality]).any():
+            print(f"警告: 输入数组包含NaN值")
+        if np.isinf(mahnobData.features[modality]).any():
+            print(f"警告: 输入数组包含Inf值")
     pass

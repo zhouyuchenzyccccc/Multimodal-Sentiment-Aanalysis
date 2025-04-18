@@ -80,6 +80,7 @@ class TransformerSubnetwork(nn.Module):
 
     def forward(self, x):
         # x shape: [batch, input_dim]
+
         x = self.proj(x).unsqueeze(1)  # [batch, 1, feat_dim]
         x = self.pos_encoder(x)
         x = self.transformer(x)  # [batch, 1, feat_dim]
@@ -204,11 +205,12 @@ class MultimodalTransformerModel(nn.Module):
         pps_feat = self.pps_net(pps)  # [batch, 128]
 
         contrastive_loss = 0
-        arousal_labels, valence_labels = labels
-
-        contrastive_loss += self.compute_contrastive_loss(eeg_feat, eye_feat, arousal_labels)
-        contrastive_loss += self.compute_contrastive_loss(eeg_feat, pps_feat, arousal_labels)
-        contrastive_loss += self.compute_contrastive_loss(eye_feat, pps_feat, arousal_labels)
+        if labels is not None:
+            arousal_labels = labels[0]
+            valence_labels = labels[1]  # 新增valence标签
+            contrastive_loss += self.compute_contrastive_loss(eeg_feat, eye_feat, arousal_labels)
+            contrastive_loss += self.compute_contrastive_loss(eeg_feat, pps_feat, arousal_labels)
+            contrastive_loss += self.compute_contrastive_loss(eye_feat, pps_feat, arousal_labels)
 
         # 双向跨模态注意力
         eye_enhanced = self.cross_attn_e2p(
@@ -241,4 +243,7 @@ class MultimodalTransformerModel(nn.Module):
         valence = self.valence_head(fused)  # 新增输出
 
         contrastive_loss = self.contrastive_weight * contrastive_loss
-        return arousal, valence, contrastive_loss  # 修改返回格式
+        if labels is None:
+            return arousal, valence  # 修改返回格式
+        else:
+            return arousal, valence, contrastive_loss  # 修改返回格式
