@@ -3,7 +3,7 @@ model:
 training:
   ex_name: "HCI two modality fusion" 
   batch_size: 64
-  epochs: 100
+  epochs: 300
   learning_rate: 0.0001
   weight_decay: 0.002
   optimizer: "adam"

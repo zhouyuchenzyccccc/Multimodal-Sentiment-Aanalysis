@@ -21,7 +21,7 @@ class PositionalEncoding(nn.Module):
 
 
 class EEGTransformer(nn.Module):
-    def __init__(self, in_channels=32, time_length=585, feat_dim=128, nhead=4, num_layers=2):
+    def __init__(self, in_channels=32, time_length=585, feat_dim=128, nhead=4, num_layers=4):  # 增加层数
         super().__init__()
         self.conv_proj = nn.Sequential(
             nn.Conv1d(in_channels, 64, kernel_size=15, padding=7),
@@ -29,14 +29,18 @@ class EEGTransformer(nn.Module):
             nn.GELU(),
             nn.MaxPool1d(2),
 
-            nn.Conv1d(64, feat_dim, kernel_size=7, padding=3),
+            nn.Conv1d(64, 128, kernel_size=7, padding=3),  # 增加卷积层
+            nn.BatchNorm1d(128, eps=1e-5),
+            nn.GELU(),
+            nn.MaxPool1d(2),
+
+            nn.Conv1d(128, feat_dim, kernel_size=5, padding=2),  # 减小卷积核大小
             nn.BatchNorm1d(feat_dim, eps=1e-5),
             nn.GELU(),
             nn.MaxPool1d(2),
         )
 
-        # 计算卷积后的时间维度
-        conv_time = time_length // 2 // 2
+        conv_time = time_length // 2 // 2 // 2  # 更新时间维度
         self.pos_encoder = PositionalEncoding(feat_dim, conv_time)
 
         encoder_layers = TransformerEncoderLayer(
@@ -50,16 +54,17 @@ class EEGTransformer(nn.Module):
 
         self.global_pool = nn.AdaptiveAvgPool1d(1)
         self.fc = nn.Linear(feat_dim, feat_dim)
+        self.dropout = nn.Dropout(0.3)  # 添加 Dropout
 
     def forward(self, x):
-        # x shape: [batch, 32, 585]
-        x = self.conv_proj(x)  # [batch, feat_dim, time]
-        x = x.transpose(1, 2)  # [batch, time, feat_dim]
+        x = self.conv_proj(x)
+        x = x.transpose(1, 2)
         x = self.pos_encoder(x)
-        x = self.transformer(x)  # [batch, time, feat_dim]
-        x = x.transpose(1, 2)  # [batch, feat_dim, time]
-        x = self.global_pool(x).squeeze(-1)  # [batch, feat_dim]
-        return self.fc(x)
+        x = self.transformer(x)
+        x = x.transpose(1, 2)
+        x = self.global_pool(x).squeeze(-1)
+        return self.fc(self.dropout(x))  # 应用 Dropout
+
 
 
 class TransformerSubnetwork(nn.Module):
@@ -153,14 +158,30 @@ class MultimodalTransformerModel(nn.Module):
 
         # 修改输出头部分
         self.arousal_head = nn.Sequential(
-            nn.Linear(128, 64),
+            nn.Linear(128, 128),
+            nn.BatchNorm1d(128),
             nn.GELU(),
+            nn.Dropout(0.3),
+
+            nn.Linear(128, 64),
+            nn.BatchNorm1d(64),
+            nn.GELU(),
+            nn.Dropout(0.2),
+
             nn.Linear(64, num_classes)
         )
         # 新增Valence分类头
         self.valence_head = nn.Sequential(
-            nn.Linear(128, 64),
+            nn.Linear(128, 128),
+            nn.BatchNorm1d(128),
             nn.GELU(),
+            nn.Dropout(0.3),
+
+            nn.Linear(128, 64),
+            nn.BatchNorm1d(64),
+            nn.GELU(),
+            nn.Dropout(0.2),
+
             nn.Linear(64, num_classes)
         )
 

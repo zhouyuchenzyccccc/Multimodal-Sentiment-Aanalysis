@@ -30,7 +30,7 @@ def run(config, model):
 
     # 开始训练
     trainer.run(
-        epochs=config["training"]["epochs"],
+        5, 150,100
     )
 
 
@@ -41,6 +41,7 @@ def test(config, test_person, model_path):
 
     # 2. 初始化模型
     model = MultimodalTransformerModel()
+
 
     # 3. 初始化测试器
     tester = Tester(model, train_loader, device="cuda")
@@ -62,11 +63,13 @@ if __name__ == "__main__":
 
     # 初始化模型
     model = MultimodalTransformerModel()
+    # 打印模型的命名参数
+    # for name, param in model.named_parameters():
+    #     print(f"Parameter name: {name}, Parameter shape: {param.shape}")
 
     # train_loader, test_loader = load_data(config, test_person=1)
     # print(train_loader.__len__())
     # print(test_loader.__len__())
-
 
     # 2. 训练模型
     run(config, model)
