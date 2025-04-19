@@ -8,7 +8,7 @@ from data.LoadFeatures import DataFeatures
 
 
 class MultimodalDataLoader:
-    def __init__(self, file_path, batch_size=20, test_size=0.1, val_size=0.1, random_state=42):
+    def __init__(self, file_path, batch_size=32, test_size=0.15, val_size=0.05, random_state=42):
         self.file_path = file_path
         self.batch_size = batch_size
         self.test_size = test_size

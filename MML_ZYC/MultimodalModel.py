@@ -21,7 +21,7 @@ class PositionalEncoding(nn.Module):
 
 
 class EEGTransformer(nn.Module):
-    def __init__(self, in_channels=32, time_length=585, feat_dim=128, nhead=4, num_layers=4):  # 增加层数
+    def __init__(self, in_channels=32, time_length=585, feat_dim=128, nhead=2, num_layers=4):  # 增加层数
         super().__init__()
         self.conv_proj = nn.Sequential(
             nn.Conv1d(in_channels, 64, kernel_size=15, padding=7),
@@ -29,24 +29,19 @@ class EEGTransformer(nn.Module):
             nn.GELU(),
             nn.MaxPool1d(2),
 
-            nn.Conv1d(64, 128, kernel_size=7, padding=3),  # 增加卷积层
-            nn.BatchNorm1d(128, eps=1e-5),
-            nn.GELU(),
-            nn.MaxPool1d(2),
-
-            nn.Conv1d(128, feat_dim, kernel_size=5, padding=2),  # 减小卷积核大小
+            nn.Conv1d(64, feat_dim, kernel_size=5, padding=2),  # 减小卷积核大小
             nn.BatchNorm1d(feat_dim, eps=1e-5),
             nn.GELU(),
             nn.MaxPool1d(2),
         )
 
-        conv_time = time_length // 2 // 2 // 2  # 更新时间维度
+        conv_time = time_length // 2 // 2   # 更新时间维度
         self.pos_encoder = PositionalEncoding(feat_dim, conv_time)
 
         encoder_layers = TransformerEncoderLayer(
             d_model=feat_dim,
             nhead=nhead,
-            dim_feedforward=feat_dim * 4,
+            dim_feedforward=feat_dim * 3,
             dropout=0.3,
             batch_first=True
         )
@@ -68,7 +63,7 @@ class EEGTransformer(nn.Module):
 
 
 class TransformerSubnetwork(nn.Module):
-    def __init__(self, input_dim, feat_dim=128, num_layers=2, nhead=4):
+    def __init__(self, input_dim, feat_dim=128, num_layers=2, nhead=2):
         super().__init__()
         self.proj = nn.Linear(input_dim, feat_dim)
         self.pos_encoder = PositionalEncoding(feat_dim, max_len=100)
@@ -76,7 +71,7 @@ class TransformerSubnetwork(nn.Module):
         encoder_layers = TransformerEncoderLayer(
             d_model=feat_dim,
             nhead=nhead,
-            dim_feedforward=feat_dim * 4,
+            dim_feedforward=feat_dim * 3,
             dropout=0.3,
             batch_first=True
         )
@@ -118,7 +113,7 @@ class CrossModalTransformer(nn.Module):
 
 
 class MultimodalTransformerModel(nn.Module):
-    def __init__(self, num_classes=3, temperature=0.1):
+    def __init__(self, num_classes=3, temperature=0.01):
         super().__init__()
         # 输入维度定义
         self.eeg_channels = 32
@@ -163,12 +158,7 @@ class MultimodalTransformerModel(nn.Module):
             nn.GELU(),
             nn.Dropout(0.3),
 
-            nn.Linear(128, 64),
-            nn.BatchNorm1d(64),
-            nn.GELU(),
-            nn.Dropout(0.2),
-
-            nn.Linear(64, num_classes)
+            nn.Linear(128, num_classes)
         )
         # 新增Valence分类头
         self.valence_head = nn.Sequential(
@@ -180,7 +170,7 @@ class MultimodalTransformerModel(nn.Module):
             nn.Linear(128, 64),
             nn.BatchNorm1d(64),
             nn.GELU(),
-            nn.Dropout(0.2),
+            nn.Dropout(0.3),
 
             nn.Linear(64, num_classes)
         )

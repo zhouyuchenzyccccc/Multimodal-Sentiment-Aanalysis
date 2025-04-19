@@ -78,6 +78,11 @@ class MultiTaskTrainer:
         self._freeze_all()
         # 解冻融合相关模块
         modules_to_unfreeze = [
+            # ----------------------------
+            self.model.eeg_net,
+            self.model.eye_net,
+            self.model.pps_net,
+            # ----------------------------
             self.model.cross_attn_e2p,
             self.model.cross_attn_p2e,
             self.model.attention_weights,
@@ -87,6 +92,9 @@ class MultiTaskTrainer:
         for module in modules_to_unfreeze:
             for param in module.parameters():
                 param.requires_grad = True
+
+
+
         # 创建阶段专属优化器和调度器
         self.phase2_optimizer = optim.AdamW(
             [param for param in self.model.parameters() if param.requires_grad],
@@ -204,7 +212,7 @@ class MultiTaskTrainer:
             # 损失计算
             a_loss = self.criterion['arousal'](a_out, labels[0])
 
-            total_loss = a_loss+c_loss
+            total_loss = a_loss
 
             total_loss.backward()
 
@@ -266,7 +274,7 @@ class MultiTaskTrainer:
             v_loss = self.criterion['valence'](v_out, labels[1])
             total_loss = v_loss
 
-            v_loss.backward()
+            total_loss.backward()
 
             torch.nn.utils.clip_grad_norm_(self.model.parameters(), 1.0)
             valence_optimizer.step()

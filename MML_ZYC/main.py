@@ -30,7 +30,7 @@ def run(config, model):
 
     # 开始训练
     trainer.run(
-        5, 150,100
+        10, 100, 100
     )
 
 
@@ -41,7 +41,6 @@ def test(config, test_person, model_path):
 
     # 2. 初始化模型
     model = MultimodalTransformerModel()
-
 
     # 3. 初始化测试器
     tester = Tester(model, train_loader, device="cuda")
