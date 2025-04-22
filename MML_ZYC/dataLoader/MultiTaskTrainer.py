@@ -8,10 +8,11 @@ import numpy as np
 
 
 class MultiTaskTrainer:
-    def __init__(self, model, train_loader, test_loader, device='cuda'):
+    def __init__(self, model, train_loader, test_loader,val_loader, device='cuda'):
         self.model = model.to(device)
         self.train_loader = train_loader
         self.test_loader = test_loader
+        self.val_loader = val_loader
         self.device = device
         # 初始化各阶段组件
         self.phase1_optimizer = None
@@ -29,7 +30,8 @@ class MultiTaskTrainer:
         # 训练记录
         self.metrics = {
             'train': {'loss': [], 'a_loss': [], 'v_loss': [], 'c_loss': [], 'a_acc': [], 'v_acc': []},
-            'test': {'loss': [], 'a_loss': [], 'v_loss': [], 'c_loss': [], 'a_acc': [], 'v_acc': []}
+            'test': {'loss': [], 'a_loss': [], 'v_loss': [], 'c_loss': [], 'a_acc': [], 'v_acc': []},
+            'val': {'loss': [], 'a_loss': [], 'v_loss': [], 'c_loss': [], 'a_acc': [], 'v_acc': []}
         }
 
         # 早停机制
@@ -63,7 +65,7 @@ class MultiTaskTrainer:
             list(self.model.eye_net.parameters()) +
             list(self.model.pps_net.parameters()),
             lr=1e-4,
-            weight_decay=0.01
+            weight_decay=1e-4
         )
         self.phase1_scheduler = ReduceLROnPlateau(
             self.phase1_optimizer,
@@ -79,9 +81,9 @@ class MultiTaskTrainer:
         # 解冻融合相关模块
         modules_to_unfreeze = [
             # ----------------------------
-            self.model.eeg_net,
-            self.model.eye_net,
-            self.model.pps_net,
+            # self.model.eeg_net,
+            # self.model.eye_net,
+            # self.model.pps_net,
             # ----------------------------
             self.model.cross_attn_e2p,
             self.model.cross_attn_p2e,
@@ -93,13 +95,11 @@ class MultiTaskTrainer:
             for param in module.parameters():
                 param.requires_grad = True
 
-
-
         # 创建阶段专属优化器和调度器
         self.phase2_optimizer = optim.AdamW(
             [param for param in self.model.parameters() if param.requires_grad],
             lr=1e-4,
-            weight_decay=0.01
+            weight_decay=1e-5
         )
         self.phase2_scheduler = ReduceLROnPlateau(
             self.phase2_optimizer,
@@ -118,7 +118,7 @@ class MultiTaskTrainer:
         self.phase3_optimizer = optim.AdamW(
             self.model.valence_head.parameters(),
             lr=1e-4,
-            weight_decay=0.01
+            weight_decay=1e-4
         )
         self.phase3_scheduler = ReduceLROnPlateau(
             self.phase3_optimizer,
@@ -151,8 +151,7 @@ class MultiTaskTrainer:
             a_out, v_out, c_loss = self.model(*inputs, labels=labels)
 
             # 损失计算
-            total_loss = 0.8 * c_loss + 0.1 * self.criterion['arousal'](a_out, labels[0]) + 0.1 * self.criterion[
-                'valence'](v_out, labels[1])
+            total_loss = c_loss
             # ---------------------------------------------------------------------
             total_loss.backward()
             torch.nn.utils.clip_grad_norm_(self.model.parameters(), 1.0)
@@ -461,3 +460,8 @@ class MultiTaskTrainer:
 
         # 最终可视化
         self.visualize_progress()
+        val_metrics = self.evaluate(mode='val')
+        print("\nValidation Results:---------------------------------------------------------------------------------")
+        print(
+            f" A Acc: {val_metrics['a_acc']:.2%} | V Acc: {val_metrics['v_acc']:.2%}")
+

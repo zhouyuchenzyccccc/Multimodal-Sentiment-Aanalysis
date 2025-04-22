@@ -4,8 +4,9 @@ from Tester import Tester
 import torch
 import joblib
 from data.Dataset import load_data, FeatureDataset
+from dataLoader.CrossSubjectDataLoader import CrossSubjectDataLoader
 from dataLoader.MultiTaskTrainer import MultiTaskTrainer
-from dataLoader.MultimodalDataLoader import MultimodalDataLoader
+
 
 
 def load_config(config_path="config/config.yaml"):
@@ -17,7 +18,7 @@ def load_config(config_path="config/config.yaml"):
 
 def run(config, model):
     # 初始化数据加载器
-    data_loader = MultimodalDataLoader(file_path="HCI_DATA/hci_data.pkl")
+    data_loader = CrossSubjectDataLoader(file_path="HCI_DATA/hci_data.pkl")
     train_loader, val_loader, test_loader = data_loader.load_data()
 
     # 创建训练器
@@ -25,12 +26,13 @@ def run(config, model):
         model=model,
         train_loader=train_loader,
         test_loader=test_loader,
+        val_loader=val_loader,
         device='cuda' if torch.cuda.is_available() else 'cpu'
     )
 
     # 开始训练
     trainer.run(
-        10, 100, 100
+        10, 60, 100
     )
 
 

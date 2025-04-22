@@ -7,12 +7,11 @@ import joblib
 from data.LoadFeatures import DataFeatures
 
 
-class MultimodalDataLoader:
-    def __init__(self, file_path, batch_size=64, test_size=0.15, val_size=0.05, random_state=42):
+class CrossSubjectDataLoader:
+    def __init__(self, file_path, batch_size=64, random_state=42):
         self.file_path = file_path
         self.batch_size = batch_size
-        self.test_size = test_size
-        self.val_size = val_size
+
         self.random_state = random_state
 
     def _reshape_eye_pps(self, data):
@@ -57,9 +56,6 @@ class MultimodalDataLoader:
         eye = mahnobData.features["eye"]
         pps = mahnobData.features["pps"]
 
-
-
-
         # # 检查NaN和Inf
         # for name, arr in [('eeg', eeg), ('eye', eye), ('pps', pps)]:
         #     if np.isnan(arr).any():
@@ -76,19 +72,32 @@ class MultimodalDataLoader:
         }
 
     def _subject_based_split(self, subject_ids):
-        # 生成唯一被试列表并按比例划分
-        unique_subjects = np.unique(subject_ids)
-        subjects_train, subjects_temp = train_test_split(
-            unique_subjects,
-            test_size=self.test_size + self.val_size,
-            random_state=self.random_state
-        )
-        subjects_val, subjects_test = train_test_split(
-            subjects_temp,
-            test_size=self.test_size / (self.test_size + self.val_size),
-            random_state=self.random_state
-        )
-        return subjects_train, subjects_val, subjects_test
+        """
+        不再随机划分被试，而是固定每个被试的训练/测试样本数量。
+        返回每个被试的训练和测试样本的索引。
+        """
+        train_indices = []
+        test_indices = []
+        val_indices = []  # 添加验证集索引
+
+        train_samples = 17
+        val_samples = 1
+
+
+        for subject_id in np.unique(subject_ids):
+            # 获取当前被试的所有样本的索引
+            subject_indices = np.where(subject_ids == subject_id)[0]
+
+            # 随机打乱当前被试的样本索引
+            np.random.seed(self.random_state)  # 保证可重复性
+            np.random.shuffle(subject_indices)
+
+            # 划分训练集、验证集和测试集
+            train_indices.extend(subject_indices[:train_samples])
+            val_indices.extend(subject_indices[train_samples:train_samples + val_samples])  # 划分验证集
+            test_indices.extend(subject_indices[train_samples + val_samples:])  # 划分测试集
+
+        return train_indices, val_indices, test_indices
 
     def _get_dataset(self, data_dict):
         # 创建TensorDataset并进行标准化
@@ -100,21 +109,29 @@ class MultimodalDataLoader:
 
         # 生成被试索引 (24个被试，每个20个样本)
         subject_ids = np.repeat(np.arange(24), 20)
+        print(subject_ids)
 
         # 划分训练/验证/测试集
-        train_subj, val_subj, test_subj = self._subject_based_split(subject_ids)
+        train_indices, val_indices, test_indices = self._subject_based_split(subject_ids)
 
-        # 生成样本mask
-        train_mask = np.isin(subject_ids, train_subj)
-        val_mask = np.isin(subject_ids, val_subj)
-        test_mask = np.isin(subject_ids, test_subj)
+        # 应用索引
+        eeg_train = eeg[train_indices]
+        eye_train = eye[train_indices]
+        pps_train = pps[train_indices]
+        arousal_train = arousal[train_indices]
+        valence_train = valence[train_indices]
 
-        # 应用mask
-        eeg_train, eeg_val, eeg_test = eeg[train_mask], eeg[val_mask], eeg[test_mask]
-        eye_train, eye_val, eye_test = eye[train_mask], eye[val_mask], eye[test_mask]
-        pps_train, pps_val, pps_test = pps[train_mask], pps[val_mask], pps[test_mask]
-        arousal_train, arousal_val, arousal_test = arousal[train_mask], arousal[val_mask], arousal[test_mask]
-        valence_train, valence_val, valence_test = valence[train_mask], valence[val_mask], valence[test_mask]
+        eeg_val = eeg[val_indices]
+        eye_val = eye[val_indices]
+        pps_val = pps[val_indices]
+        arousal_val = arousal[val_indices]
+        valence_val = valence[val_indices]
+
+        eeg_test = eeg[test_indices]
+        eye_test = eye[test_indices]
+        pps_test = pps[test_indices]
+        arousal_test = arousal[test_indices]
+        valence_test = valence[test_indices]
 
         # 转换为PyTorch张量
         train_set = TensorDataset(
@@ -161,8 +178,8 @@ class MultimodalDataLoader:
 
 # 使用示例
 if __name__ == "__main__":
-    data_loader = MultimodalDataLoader(
-        file_path=r"F:\毕业设计\学长代码\Multimodal-sentiment-analysis\MML_ZYC\HCI_DATA\hci_data.pkl")
+    data_loader = CrossSubjectDataLoader(
+        file_path=r"F:\毕业设计\Multimodal-Sentiment-Aanalysis\MML_ZYC\HCI_DATA\hci_data.pkl")
     train_loader, val_loader, test_loader = data_loader.load_data()
     # 调试：检查第一个batch的数据形状
     sample_batch = next(iter(train_loader))
