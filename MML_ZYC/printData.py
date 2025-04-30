@@ -18,7 +18,7 @@ from dataLoader.MultimodalDataLoader import MultimodalDataLoader
 # else:
 #     print("data中不包含'label'键。")
 
-loader = MultimodalDataLoader(r"F:\毕业设计\学长代码\Multimodal-sentiment-analysis\MML_ZYC\HCI_DATA\hci_data.pkl")
+loader = MultimodalDataLoader(r"F:\毕业设计\Multimodal-Sentiment-Aanalysis\MML_ZYC\HCI_DATA\hci_data.pkl")
 train, val, test = loader.load_data()
 
 # 检查第一个批次

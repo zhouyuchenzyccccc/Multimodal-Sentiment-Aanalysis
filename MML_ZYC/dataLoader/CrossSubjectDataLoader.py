@@ -8,7 +8,7 @@ from data.LoadFeatures import DataFeatures
 
 
 class CrossSubjectDataLoader:
-    def __init__(self, file_path, batch_size=64, random_state=42):
+    def __init__(self, file_path, batch_size=32, random_state=42):
         self.file_path = file_path
         self.batch_size = batch_size
 
@@ -80,7 +80,7 @@ class CrossSubjectDataLoader:
         test_indices = []
         val_indices = []  # 添加验证集索引
 
-        train_samples = 17
+        train_samples = 16
         val_samples = 1
 
 

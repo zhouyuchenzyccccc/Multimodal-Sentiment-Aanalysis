@@ -5,8 +5,8 @@ import torch
 import joblib
 from data.Dataset import load_data, FeatureDataset
 from dataLoader.CrossSubjectDataLoader import CrossSubjectDataLoader
+from dataLoader.DataLoader import MultimodalDataLoader
 from dataLoader.MultiTaskTrainer import MultiTaskTrainer
-
 
 
 def load_config(config_path="config/config.yaml"):
@@ -16,23 +16,18 @@ def load_config(config_path="config/config.yaml"):
     return config
 
 
-def run(config, model):
-    # 初始化数据加载器
-    data_loader = CrossSubjectDataLoader(file_path="HCI_DATA/hci_data.pkl")
-    train_loader, val_loader, test_loader = data_loader.load_data()
-
+def run(config, model, train_loader, test_loader, test_person):
     # 创建训练器
     trainer = MultiTaskTrainer(
         model=model,
         train_loader=train_loader,
         test_loader=test_loader,
-        val_loader=val_loader,
-        device='cuda' if torch.cuda.is_available() else 'cpu'
+        device='cuda' if torch.cuda.is_available() else 'cpu',
+        test_person=test_person
     )
-
     # 开始训练
     trainer.run(
-        10, 60, 100
+        50, 70, 50, 10, 100
     )
 
 
@@ -61,20 +56,13 @@ if __name__ == "__main__":
 
     # 1. 加载数据
     config = load_config()
-
-    # 初始化模型
-    model = MultimodalTransformerModel()
-    # 打印模型的命名参数
-    # for name, param in model.named_parameters():
-    #     print(f"Parameter name: {name}, Parameter shape: {param.shape}")
-
-    # train_loader, test_loader = load_data(config, test_person=1)
-    # print(train_loader.__len__())
-    # print(test_loader.__len__())
-
-    # 2. 训练模型
-    run(config, model)
-
-    # for test_person in [17, 18, 19, 20]:
-    #     test(config, test_person,
-    #          model_path="models_2/TestPerson13_epoch12_TrainLoss0.0237_CELoss0.0018_ContrastiveLoss0.0221_Acc0.9775_TestLoss0.1573_CELoss0.0026_ContrastiveLoss0.1558_Acc1.0000.pth")
+    subject_lists = [1, 2, 4, 5, 6, 7, 8, 10, 11, 13, 14, 17, 18, 19, 20, 21, 22, 23, 24, 26, 27, 28, 29, 30]
+    data_loader = MultimodalDataLoader(
+        file_path=r"F:\毕业设计\Multimodal-Sentiment-Aanalysis\MML_ZYC\HCI_DATA\hci_data.pkl")
+    for test_subject_id in subject_lists:
+        print(f"Training with subject {test_subject_id} as test set")
+        train_loader, test_loader = data_loader.load_data(test_subject_id)
+        # 初始化模型
+        model = MultimodalTransformerModel()
+        # 2. 训练模型
+        run(config, model, train_loader, test_loader, test_subject_id)
